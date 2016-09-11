@@ -33,14 +33,14 @@ class parcialDb{
         return $results;
     }
 	
-	//Obtencion de un parcial por su nombre
-    public function obtenerParcialPorNombre($nombreParcial){
-        $this->sql = "SELECT * FROM parcial WHERE nombre = $nombreParcial;";
+	//Obtencion de un parcial de un determinado nombre y curso
+    public function obtenerParcialPorNombreYCurso($idCurso, $nombreParcial){
+        $this->sql = "SELECT * FROM parcial WHERE id_curso = $idCurso AND nombre = $nombreParcial;";
     	$results = $this->dbcon->query($this->sql);
         return $results;
     } 
 
-    //Obtencion de los parciales de un determinado curso
+    //Obtencion de los parciales de un determinado curso y nombre
     public function obtenerParcialesCurso($idCurso){
         $this->sql = "SELECT * FROM parcial WHERE id_curso = $idCurso;";
     	$results = $this->dbcon->query($this->sql);

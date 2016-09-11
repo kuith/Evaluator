@@ -42,9 +42,14 @@
 			$ParcialDb -> nuevo($nombre, $idCurso, $peso);
 			header("Location:../index.php?idCurso='".$idCurso.'"');
 		} else {
-			header("Location:pesoExcedido.php?pesoTotalAcumulado='".$pesoTotal.'"');
+			header("Location:avisos/pesoExcedido.php?pesoTotalAcumulado='".$pesoTotal."'& idCurso='".$idCurso."'");
 
 		}		
+	}
+	
+	//procesar eliminar parcial
+	if ( !empty($_POST["form_eliminar_parcial"]) ){
+		$idCurso = $_POST[""];
 	}
 	
 	//procesar nuevo alumno

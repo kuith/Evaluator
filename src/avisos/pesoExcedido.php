@@ -1,5 +1,6 @@
 <?php
 	$pesoTotalCumulado=$_GET['pesoTotalAcumulado'];
+	$idCurso=$_GET['idCurso'];
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -16,7 +17,7 @@
 				<h4 class="card-title">Peso Superior al 100%</h4>
 				<p class="card-text">El peso total de los parciales del curso es superior al 100%.</p>
 				<p class="card-text">El peso total actual es: <?php print $pesoTotalCumulado ?> .</p>
-				<a href=../index.php?idCurso='".$idCurso.'"'" class="card-link">Volver</a>
+				<a href="../../index.php?idCurso="<?php print $idCurso. '"' ?> class="card-link">Volver</a>
 			</div>
 		</div>
 	<!-- jQuery first, then Tether, then Bootstrap JS. -->
@@ -24,5 +25,7 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/js/bootstrap.min.js" integrity="VjEeINv9OSwtWFLAtmc4JCtEJXXBub00gtSnszmspDLCtC0I4z4nqz7rEFbIZLLU" crossorigin="anonymous"></script>
 	</body>
+	<!--TODO: hacer que al dar a tras pueda volver, sin errores a la pagina del curso, no al indice.-->
 </html>
+
 
