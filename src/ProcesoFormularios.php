@@ -49,7 +49,19 @@
 	
 	//procesar eliminar parcial
 	if ( !empty($_POST["form_eliminar_parcial"]) ){
-		$idCurso = $_POST[""];
+		$idCurso = $_POST["form_eliminar_parcial"];
+		$nombre = $_POST["nombre_parcial"];
+		
+		$ParcialDb = parcialDb::getInstance();
+		$ParcialDb -> obtenerParcialPorNombreYCurso($idCurso, $nombre);
+		$ParcialBuscado = mysql_fetch_object($ParcialDb);
+		
+		if(mysql_num_rows($ParcialBuscado)==0){
+			header("Location:avisos/parcialParaEliminarNoEncontrado.php");
+		} else {
+			$ParcialDb -> elimiarParcialPorNombreYCurso($idCurso, $nombre);
+			header("Location:../index.php?idCurso='".$idCurso.'"');
+		}
 	}
 	
 	//procesar nuevo alumno

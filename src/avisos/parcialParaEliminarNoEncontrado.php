@@ -1,7 +1,3 @@
-<?php
-	$pesoTotalCumulado=$_GET['pesoTotalAcumulado'];
-	$idCurso=$_GET['idCurso'];
-?>
 <!DOCTYPE html>
 <html lang="es">
 	<head>
@@ -16,7 +12,7 @@
 			<div class="card card-block">
 				<h4 class="card-title">Parcial no encontrado</h4>
 				<p class="card-text">El parcial que desea elimiar no existe en la BD.</p>
-				<a href="../../index.php?idCurso="<?php print $idCurso. '"' ?> class="card-link">Volver</a>
+				<a href="../../index.php" class="card-link">Volver</a>
 			</div>
 		</div>
 	<!-- jQuery first, then Tether, then Bootstrap JS. -->

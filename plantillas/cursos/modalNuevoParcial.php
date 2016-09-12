@@ -1,3 +1,6 @@
+<!--
+	La variable $idCurso debe existir
+-->
 <div class="modal hide fade" id="modal_nuevo_parcial">
           <div class="modal-dialog modal-sm" role="document">
             <div class="modal-content">

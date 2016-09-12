@@ -65,6 +65,12 @@ class parcialDb{
         $this->sql = "DELETE FROM parcial WHERE id = $idParcial";
         $this->dbcon->query($this->sql);
     }
+	
+	//Eliminar parcial de un determinado curso y nombre
+	public function elimiarParcialPorNombreYCurso($idCurso, $nombre){
+		$this->sql = "DELETE FROM `parcial` WHERE id_Curso =  $idCurso AND nombre = $nombre;";
+		$this->dbcon->query($this->sql);
+	}
 
 }
 
