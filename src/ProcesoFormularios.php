@@ -53,11 +53,14 @@
 		$nombre = $_POST["nombre_parcial"];
 		
 		$ParcialDb = parcialDb::getInstance();
-		$ParcialDb -> obtenerParcialPorNombreYCurso($idCurso, $nombre);
-		$ParcialBuscado = mysql_fetch_object($ParcialDb);
-		
-		if(mysql_num_rows($ParcialBuscado)==0){
-			header("Location:avisos/parcialParaEliminarNoEncontrado.php");
+		$ParcialesCurso =  $ParcialDb->obtenerParcialPorNombreYCurso($idCurso, $nombre);
+		//$ParcialesRow = $ParcialesCurso -> fetch_object();
+		$numeroParcialesEncontrados = $ParcialesCurso -> num_rows;
+	
+		if($numeroParcialesEncontrados == 0){
+			//header("Location:pruebas.php?numeroParcialesEncontrados='".$numeroParcialesEncontrados."'");
+			//header("Location:avisos/parcialParaEliminarNoEncontrado.php.);
+			header("Location:avisos/parcialParaEliminarNoEncontrado.php?numeroParcialesEncontrados='".$numeroParcialesEncontrados."'");
 		} else {
 			$ParcialDb -> elimiarParcialPorNombreYCurso($idCurso, $nombre);
 			header("Location:../index.php?idCurso='".$idCurso.'"');

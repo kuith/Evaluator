@@ -1,5 +1,5 @@
  <?php
  
-	$pesoAcumulado=$_GET['pesoAcumulado'];
+	$numeroParcialesEncontrados=$_GET['numeroParcialesEncontrados'];
 
-	print($pesoAcumulado);
+	print($numeroParcialesEncontrados);
