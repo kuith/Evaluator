@@ -33,7 +33,7 @@
 
 		$ParcialDb = ParcialDb::getInstance();
 		
-		$pesoAcumuladoObj = $ParcialDb->obtenerPesoTotalParcialesCurso($idCurso);
+		$pesoAcumuladoObj = $ParcialDb-> obtenerPesoTotalParcialesCurso($idCurso);
 		$pesoAcumulado = mysqli_fetch_assoc($pesoAcumuladoObj);
 		$pesoAcumuladoResult = (int)$pesoAcumulado["pesoTotal"];
 		$pesoTotal = $pesoAcumuladoResult + (int)$peso;
@@ -53,19 +53,33 @@
 		$nombre = $_POST["nombre_parcial"];
 		
 		$ParcialDb = parcialDb::getInstance();
-		$ParcialesCurso =  $ParcialDb->obtenerParcialPorNombreYCurso($idCurso, $nombre);
-		//$ParcialesRow = $ParcialesCurso -> fetch_object();
-		$numeroParcialesEncontrados = $ParcialesCurso -> num_rows;
-	
-		if($numeroParcialesEncontrados == 0){
-			//header("Location:pruebas.php?numeroParcialesEncontrados='".$numeroParcialesEncontrados."'");
-			//header("Location:avisos/parcialParaEliminarNoEncontrado.php.);
-			header("Location:avisos/parcialParaEliminarNoEncontrado.php?numeroParcialesEncontrados='".$numeroParcialesEncontrados."'");
+		$ParcialesCurso =  $ParcialDb->obtenerParcialPorNombreYCurso($idCurso, "'".$nombre."'");
+		$numeroParcialesEncontrados = (int)$ParcialesCurso -> num_rows;
+		if($numeroParcialesEncontrados === 0){
+			header("Location:avisos/parcialParaEliminarNoEncontrado.php");
 		} else {
-			$ParcialDb -> elimiarParcialPorNombreYCurso($idCurso, $nombre);
+			$ParcialDb -> elimiarParcialPorNombreYCurso($idCurso, "'".$nombre."'");
 			header("Location:../index.php?idCurso='".$idCurso.'"');
 		}
 	}
+	
+	//Procesar eliminar alumno
+	if ( !empty($_POST["form_eliminar_alumno"]) ){
+		$idCurso = $_POST["form_eliminar_alumno"];
+		$nombre = $_POST["nombre_alumno_eliminar"];
+		
+		$alumnosDb = alumnoDb::getInstance();
+		$AlumnosCurso =  $alumnosDb->obtenerAlumnoPorNombreYCurso($idCurso, "'".$nombre."'");
+		$numeroAlumnosEncontrados = (int)$AlumnosCurso -> num_rows;
+		if($numeroAlumnosEncontrados === 0){
+			header("Location:avisos/alumnoNoExistente.php?nombreAlumno='".$nombre.'"');
+		} else {
+			$alumnosDb -> eliminarAlumno("'".$nombre."'");
+			header("Location:../index.php?idCurso='".$idCurso.'"');
+		}
+	}
+	
+	
 	
 	//procesar nuevo alumno
 	if ( !empty($_POST["form_nuevo_alumno"]) ){
@@ -74,11 +88,16 @@
 		$nombre = $_POST["nombre_alumno"];
 		
 		$AlumnoDb = AlumnoDb::getInstance();
-		$AlumnoDb -> nuevo($nombre, $idCurso);
-
-		header("Location:../index.php?idCurso='".$idCurso.'"');
-
-
+		
+		$alumnoEnBD = $AlumnoDb -> obtenerAlumnoPorNombre("'".$nombre."'");
+		$numeroAlumnosEnBd = (int)$alumnoEnBD -> num_rows;
+		//echo($numeroAlumnosEnBd);
+		if($numeroAlumnosEnBd === 0){
+			$AlumnoDb -> nuevoAlumno($nombre, $idCurso);
+			header("Location:../index.php?idCurso='".$idCurso.'"');
+		} else {
+			header("Location:avisos/alumnoExistente.php?nombreAlumno='".$nombre.'"');
+		}
 	}
 //TODO: hacer que al dar de alta nuevo curso, vuelva a la misma página "curso.php".
 

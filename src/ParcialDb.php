@@ -40,7 +40,7 @@ class parcialDb{
         return $results;
     } 
 
-    //Obtencion de los parciales de un determinado curso y nombre
+    //Obtencion de los parciales de un determinado curso
     public function obtenerParcialesCurso($idCurso){
         $this->sql = "SELECT * FROM parcial WHERE id_curso = $idCurso;";
     	$results = $this->dbcon->query($this->sql);

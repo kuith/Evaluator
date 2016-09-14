@@ -17,9 +17,9 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal" id="cerrar_eliminar_alumno">Cerrar</button>
-                  <?php
-                    print'<button type="submit" class="btn btn-primary" name = "form_eliminar_alumno" id="form_eliminar_alumno">Enviar</button>';
-                  ?>
+					<?php
+						print'<button type="submit" class="btn btn-primary" name = "form_eliminar_alumno" value='.$idCurso.' >Enviar</button>';
+					?>
                 </div>
               </form>
 

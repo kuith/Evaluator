@@ -31,33 +31,40 @@ Class AlumnoDb {
  	public function obtenerAlumnos(){
     	$results = $this->dbCon->query("SELECT * FROM alumno;"); 
         return $results;
-
     }  
 
+	/*Obtencion de un alumno por su nombre*/
+ 	public function obtenerAlumnoPorNombre($nombreAlumno){
+		$this->sql = "SELECT * FROM alumno WHERE nombre = $nombreAlumno;";
+    	$results = $this->dbcon->query($this->sql); 
+        return $results;
+    }  
 
     /*Obtencion de los alumnos de un determinado cursoporId*/
     public function obtenerAlumnosCursoId($idCurso){
         $this->sql = "SELECT * FROM alumno WHERE id_curso = $idCurso;";
     	$results = $this->dbcon->query($this->sql);
         return $results;
-
     }
-
+	
+	//Obtencion de un parcial de un determinado nombre y curso
+    public function obtenerAlumnoPorNombreYCurso($idCurso, $nombreAlumno){
+        $this->sql = "SELECT * FROM alumno WHERE id_curso = $idCurso AND nombre = $nombreAlumno;";
+    	$results = $this->dbcon->query($this->sql);
+        return $results;
+    }
+	
     //Dar de alta un nuevo alumno
-    public function nuevo($nombreAlumno, $idCurso) {
+    public function nuevoAlumno($nombreAlumno, $idCurso) {
 
         $this->sql = "INSERT INTO alumno (id, nombre, id_curso) VALUES (null, '$nombreAlumno', '$idCurso');";
         $this->dbcon->query($this->sql);
-
     }
 
-    //Eliminar un alumno
-    public function eliminar($idAlumno){
-        $this->sql = "DELETE FROM parcial WHERE id = $idAlumno";
+    //Eliminar un alumno por nombre
+    public function eliminarAlumno($nombreAlumno){
+        $this->sql = "DELETE FROM alumno WHERE nombre = $nombreAlumno";
         $this->dbcon->query($this->sql);
     }
-
-
-
     
 }

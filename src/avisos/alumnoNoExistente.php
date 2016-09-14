@@ -1,3 +1,6 @@
+<?php
+	$nombreAlumno=$_GET['nombreAlumno'];
+?>
 <!DOCTYPE html>
 <html lang="es">
 	<head>
@@ -10,8 +13,8 @@
 	<body>
 		<div class ="container">
 			<div class="card card-block">
-				<h4 class="card-title">Parcial no encontrado</h4>
-				<p class="card-text">El parcial que desea elimiar no existe en la BD.</p>
+				<h4 class="card-title">Alumno No Existente</h4>
+				<p class="card-text">El alumno <?php print $nombreAlumno ?> no existe en la BD.</p>
 				<a href="../../index.php" class="card-link">Volver</a>
 			</div>
 		</div>
