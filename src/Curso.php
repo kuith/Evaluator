@@ -40,16 +40,16 @@
             <button type="button" id="eliminarlumno" data-toggle="modal" data-target="#modal_eliminar_alumno" class="btn btn-primary">Eliminar Alumno</button>
 	    </div>
         <!--modal prompt nuevo parcial-->
-        <?php require '../plantillas/cursos/modalNuevoParcial.php' ?>       
+        <?php require 'modal/modalNuevoParcial.php' ?>       
         <!-- Fin modal Prompt nuevo parcial--> 
         <!--modal prompt eliminar parcial-->
-        <?php require '../plantillas/cursos/modalEliminarParcial.php' ?>       
+        <?php require 'modal/modalEliminarParcial.php' ?>       
         <!-- Fin modal Prompt eliminar parcial--> 
         <!--modal prompt nuevo alumno-->
-        <?php require '../plantillas/cursos/modalNuevoAlumno.php' ?> 
+        <?php require 'modal/modalNuevoAlumno.php' ?> 
         <!-- Fin modal Prompt nuevo parcial-->
         <!--modal prompt eliminar alumno-->
-        <?php require '../plantillas/cursos/modalEliminarAlumno.php' ?> 
+        <?php require 'modal/modalEliminarAlumno.php' ?> 
         <!-- Fin modal Prompt eliminar parcial-->
         
 	    <!--tabla del curso-->

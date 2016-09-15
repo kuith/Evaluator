@@ -12,7 +12,7 @@
                 <h4 class="modal-title">Añadir Alumno</h4>
               </div>
 
-              <form  method="POST" action="ProcesoFormularios.php">
+              <form  method="POST" action="../src/ProcesoFormularios.php">
                 <div class="modal-body">
                     <div class="form-group">
                       <label for="nombre_alumno" class="form-control-label">Nombre del alumno:</label>

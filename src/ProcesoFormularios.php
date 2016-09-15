@@ -33,18 +33,25 @@
 
 		$ParcialDb = ParcialDb::getInstance();
 		
-		$pesoAcumuladoObj = $ParcialDb-> obtenerPesoTotalParcialesCurso($idCurso);
-		$pesoAcumulado = mysqli_fetch_assoc($pesoAcumuladoObj);
-		$pesoAcumuladoResult = (int)$pesoAcumulado["pesoTotal"];
-		$pesoTotal = $pesoAcumuladoResult + (int)$peso;
-		
-		if($pesoTotal <= 100){
-			$ParcialDb -> nuevo($nombre, $idCurso, $peso);
-			header("Location:../index.php?idCurso='".$idCurso.'"');
-		} else {
-			header("Location:avisos/pesoExcedido.php?pesoTotalAcumulado='".$pesoTotal."'& idCurso='".$idCurso."'");
+		$ParcialesCurso =  $ParcialDb->obtenerParcialPorNombreYCurso($idCurso, "'".$nombre."'");
+		$numeroParcialesEncontrados = (int)$ParcialesCurso -> num_rows;
+		if($numeroParcialesEncontrados === 0){
+				
+			$pesoAcumuladoObj = $ParcialDb-> obtenerPesoTotalParcialesCurso($idCurso);
+			$pesoAcumulado = mysqli_fetch_assoc($pesoAcumuladoObj);
+			$pesoAcumuladoResult = (int)$pesoAcumulado["pesoTotal"];
+			$pesoTotal = $pesoAcumuladoResult + (int)$peso;
 
-		}		
+			if($pesoTotal <= 100){
+				$ParcialDb -> nuevo($nombre, $idCurso, $peso);
+				header("Location:../index.php?idCurso='".$idCurso.'"');
+			} else {
+				header("Location:avisos/pesoExcedido.php?pesoTotalAcumulado='".$pesoTotal."'& idCurso='".$idCurso."'");
+
+			}
+		} else {
+			header("Location:avisos/parcialExistente.php");
+		}	
 	}
 	
 	//procesar eliminar parcial

@@ -17,7 +17,7 @@
         <th>Nombre Curso</th>
         <?php
         	while ($rowParcial = $parciales->fetch_object()){
-        		print '<th>' . $rowParcial->nombre. '</th>';
+        		print '<th>' .$rowParcial->nombre. ' (' .$rowParcial->peso. ' %) </th>';
         	}
 
         ?>
