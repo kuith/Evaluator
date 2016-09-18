@@ -39,7 +39,7 @@
                 <div class="modal-body">
                     <div class="form-group">
                       <label for="nombre_curso" class="form-control-label">Nombre del curso:</label>
-                      <input type="text" class="form-control" name = "nombre_curso" id="nombre_curso">
+                      <input type="text" class="form-control" name = "nombre_nuevo_curso" id="nombre_nuevo_curso">
                     </div>
                 </div>
                 <div class="modal-footer">

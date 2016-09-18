@@ -44,8 +44,12 @@ Class CursoDb {
     }
 
     /*recuperar un curso por su nombre*/
-    public function obtenerCursoPorNombre($inombreCurso){
+    public function obtenerCursoPorNombre($nombreCurso){
         $result = $this->dbcon->query("SELECT * FROM curso WHERE nombre = $nombreCurso;");
+        return $result;
+    }
+	public function obtenerIdPorNombre($nombreCurso){
+        $result = $this->dbcon->query("SELECT id FROM curso WHERE nombre = $nombreCurso;");
         return $result;
     }
 

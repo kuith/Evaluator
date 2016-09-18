@@ -2,15 +2,25 @@
 	require "CursoDb.php";
 	require "ParcialDb.php";
 	require "AlumnoDb.php";
+	
+	define("NOMBRE_PARCIAL_FINAL", "Final");
+	define("PESO_PARCIAL_FINAL", 0);
+	
+	//procesar nuevo curso
+	if ( !empty($_POST["nombre_nuevo_curso"])){
 
-	if ( !empty($_POST["nombre_curso"])){
-
-		$nombreCurso = $_POST["nombre_curso"];
+		$nombreCurso = $_POST["nombre_nuevo_curso"];
 		
-		//echo("tengo el nombre del curso: " . $nombreCurso . ". Y el numero de alumnos: " . $numero_alumnos);
 		$CursoDb = CursoDb::getInstance();
 		$CursoDb -> nuevo($nombreCurso);
-
+		
+		//Creacion del pacial "Final"
+		$cursoParaFinal = $CursoDb -> obtenerIdPorNombre("'".$nombreCurso."'");
+		
+		$cursoParcialFinal = mysqli_fetch_assoc($cursoParaFinal);
+		$idCursoParcialFinal = $cursoParcialFinal["id"];
+		$ParcialDb = ParcialDb::getInstance();
+		$ParcialDb -> nuevo(NOMBRE_PARCIAL_FINAL,$idCursoParcialFinal, PESO_PARCIAL_FINAL);
 		header("Location:..\index.php");
 
 	}
@@ -32,16 +42,17 @@
 		$peso = $_POST["peso_parcial"];
 
 		$ParcialDb = ParcialDb::getInstance();
-		
+		//Primero busco si existe el parcial
 		$ParcialesCurso =  $ParcialDb->obtenerParcialPorNombreYCurso($idCurso, "'".$nombre."'");
 		$numeroParcialesEncontrados = (int)$ParcialesCurso -> num_rows;
 		if($numeroParcialesEncontrados === 0){
-				
+			//Si no existe miro el peso
 			$pesoAcumuladoObj = $ParcialDb-> obtenerPesoTotalParcialesCurso($idCurso);
 			$pesoAcumulado = mysqli_fetch_assoc($pesoAcumuladoObj);
 			$pesoAcumuladoResult = (int)$pesoAcumulado["pesoTotal"];
 			$pesoTotal = $pesoAcumuladoResult + (int)$peso;
-
+			
+			//Si el peso es menos de 100 sigo
 			if($pesoTotal <= 100){
 				$ParcialDb -> nuevo($nombre, $idCurso, $peso);
 				header("Location:../index.php?idCurso='".$idCurso.'"');
@@ -85,8 +96,6 @@
 			header("Location:../index.php?idCurso='".$idCurso.'"');
 		}
 	}
-	
-	
 	
 	//procesar nuevo alumno
 	if ( !empty($_POST["form_nuevo_alumno"]) ){

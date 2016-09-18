@@ -7,8 +7,10 @@ class parcialDb{
 	static $_instance;
     private $sql;
     private $dbcon;
+	
+	const NOMBRE_PARCIAL_FINAL = 'Final';
 
-    /*La función construct es privada para evitar que el objeto pueda ser creado mediante new*/
+	/*La función construct es privada para evitar que el objeto pueda ser creado mediante new*/
     private function __construct($con = null) {
         if ($con === null) {
             $con = Conexion::getInstance();
@@ -42,7 +44,7 @@ class parcialDb{
 
     //Obtencion de los parciales de un determinado curso
     public function obtenerParcialesCurso($idCurso){
-        $this->sql = "SELECT * FROM parcial WHERE id_curso = $idCurso;";
+        $this->sql = "SELECT * FROM parcial WHERE id_curso = $idCurso AND nombre != 'Final';";
     	$results = $this->dbcon->query($this->sql);
         return $results;
     }
@@ -71,7 +73,14 @@ class parcialDb{
 		$this->sql = "DELETE FROM `parcial` WHERE id_Curso =  $idCurso AND nombre = $nombre;";
 		$this->dbcon->query($this->sql);
 	}
-
+	
+	//Calculo de nota parcial
+	public function calcularNotaParcial($peso, $nota){
+		$notaParcial = ($peso/100)*$nota;
+		return $notaParcial;
+	}
 }
 
 
+//TODO: cambair los nombres de funciones tales como nuevo, eliminar, etc a nuevoarcial, elimiarParcial, etc
+//TODO: meter la constante del nombre del prcial final en la consulta sql.

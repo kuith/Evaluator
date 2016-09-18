@@ -14,7 +14,7 @@
   <table class="table">
     <thead class="thead-inverse">
       <tr>
-        <th>Nombre Curso</th>
+        <th>Nombre</th>
         <?php
         	while ($rowParcial = $parciales->fetch_object()){
         		print '<th>' .$rowParcial->nombre. ' (' .$rowParcial->peso. ' %) </th>';
