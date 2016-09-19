@@ -46,3 +46,6 @@
 //TODO: hacer que pida confirmación de borrado de cursos.
 
 */
+/*function() {
+	document.getElementById("celdaNota").addEventListener("input", function() {	alert("input event fired");}, false);
+}*/
