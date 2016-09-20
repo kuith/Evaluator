@@ -49,3 +49,12 @@
 /*function() {
 	document.getElementById("celdaNota").addEventListener("input", function() {	alert("input event fired");}, false);
 }*/
+/*
+(function obtenerContenidoCelda(){
+		var e1 = document.getElementById('celdaNota');
+		e1.addEventListener('blur', function(){
+			var nota = e1.innerHTML;
+			alert(nota);
+		}, true);
+})();
+*/

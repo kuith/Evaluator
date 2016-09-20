@@ -11,13 +11,6 @@
 		print '<tr>';
                     print '<td>'. $row->nombre. '</td>';
                     require '../plantillas/cursos/TdGridcursoNotaParcial.php';
-                    /*while ($rowParcial = $parciales->fetch_object()){
-        		$calificacion = $calificacionesDb->obtenerNotaAlumnoCursoParcial($row->id, $idCurso, $rowParcial->id);
-
-			$nota = mysqli_fetch_assoc($calificacion);
-			$notaResult = $nota["nota"];
-        		print '<td>'.$notaResult. '</td>';
-                    }*/
 		print '</tr>';
 	}
 
