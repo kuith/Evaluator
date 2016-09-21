@@ -13,6 +13,6 @@
   $password = null;
 
   //Base de datos a utilizar
-  $db = 'validator_db';
+  $db = 'evaluator_db';
   
   $port = 3306;
