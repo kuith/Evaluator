@@ -57,4 +57,34 @@
 			alert(nota);
 		}, true);
 })();
+
+
+
+
+
+
+ 	var e1 = document.getElementById("celda"),
+		idParcial = <?php echo $rowParcial->id?>;
+	
+	e1.addEventListener("blur", function(event){
+		var nota = e1.innerHTML;
+		//alert(nota + "..." + idParcial);
+		event.target.style.background = "red";  
+	}, true);
 */
+
+
+
+
+/*Funciona
+ * 	
+			var e1 = document.getElementById('celdaNota');
+			var	idCurso = "<?php echo $idCurso;?>";
+			e1.addEventListener('blur', function(){
+				var nota = e1.innerHTML;
+				alert(nota + ". IdCurso = " + idCurso);
+			}, true);
+		
+ * 
+ * 
+ */
