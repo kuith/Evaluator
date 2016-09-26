@@ -3,3 +3,8 @@
 	$numeroParcialesEncontrados=$_GET['numeroParcialesEncontrados'];
 
 	print($numeroParcialesEncontrados);
+	
+	
+	
+	
+
