@@ -26,11 +26,11 @@
 			idParcialNota = "<?php echo $idParcialNota;?>",
 			nota = "<?php echo $notaResult;?>";
 			console.log(idAlumnoNota);
-       		alert(idAlumnoNota);
-       		//window.location.href = '../src/procesadores/procesarNotas.php?idAlumnoNota=' + idAlumnoNota
-			//						+ "&idCursoNota=" + idCursoNota
-			//						+ "&idParcialNota=" + idParcialNota
-			//						+ "&nota=" + p_nota;
+       		//alert(idAlumnoNota);
+       		window.location.href = '../src/procesadores/procesadorNotas.php?idAlumnoNota=' + idAlumnoNota
+									+ "&idCursoNota=" + idCursoNota
+									+ "&idParcialNota=" + idParcialNota
+									+ "&nota=" + nota;
         };
 
    		for (i = 0; i < cuenta; i++) {

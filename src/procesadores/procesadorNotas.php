@@ -1,4 +1,6 @@
 <?php
+	require '../CalificacionDb.php';
+
 	$idAlumnoNotaRecibido = $_GET['idAlumnoNota'];
 	$idCursoNotaRecibido = $_GET['idCursoNota'];
 	$idParcialNotaRecibido = $_GET['idParcialNota'];
@@ -15,8 +17,8 @@ if(is_numeric($notaRecibida)){
 
 
 function procesarNota() {
-	actualizarBd();
-	prcesarNotaFinal();
+	//actualizarBd();
+	procesarNotaFinal();
 }
 
 function mostrarAviso() {
@@ -26,9 +28,18 @@ function mostrarAviso() {
 function actualizarBd(){}
 	//manda al procesarFormularios para que lo haga
 
-function procesarNotaFinal(){}
-	//manda al procesar formularios para que lo haga.
+function procesarNotaFinal(){
+	$notaFinal = 0;
+	$calificacionBb = CalificacionDb::getInstance();
+	$calificaciones = $calificacionBb->obtenerCalificacionesAlumnoCurso($idAlumnoNotaRecibido, $idCursoNotaRecibido);
 	
-
+	while ($row = $calificaciones->fetch_object()){
+		$nota = $calificaciones->nota;
+		$peso = $calificaciones->id_curso->peso;
+		$notaFinal += $nota * ($peso/100);
+	}
+	echo $notaFinal;
+	
+}
 
 
