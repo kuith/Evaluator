@@ -29,14 +29,14 @@ Class CalificacionDb {
 
     /*Obtencion de todas las calificaciones*/
     public function obtenerCalificaciones(){
-        $results = $this->dbCon->query("SELECT * FROM calificaciones;"); 
+        $results = $this->dbCon->query("SELECT * FROM calificacion;"); 
         return $results;
 
     }
 
     /*Obtencion de las calificaciones de un determinado alumno*/
     public function obtenerCalificacionesAlumno($idAlumno){
-        $this->sql = "SELECT * FROM calificaciones WHERE id_alumno = $idAlumno;";
+        $this->sql = "SELECT * FROM calificacion WHERE id_alumno = $idAlumno;";
         $results = $this->dbcon->query($this->sql);
         return $results;
 
@@ -44,7 +44,7 @@ Class CalificacionDb {
 
     /*Obtencion de las calificaciones de un determinado alumno y curso*/
     public function obtenerCalificacionesAlumnoCurso($idAlumno, $idCurso){
-        $this->sql = "SELECT * FROM calificaciones WHERE id_alumno = $idAlumno AND id_curso = $idCurso;";
+        $this->sql = "SELECT * FROM calificacion WHERE id_alumno = $idAlumno AND id_curso = $idCurso;";
         $results = $this->dbcon->query($this->sql);
         return $results;
     }

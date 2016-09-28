@@ -79,6 +79,12 @@ class parcialDb{
 		$notaParcial = ($peso/100)*$nota;
 		return $notaParcial;
 	}
+	//Obtener el peso de un parcial
+	public function obtenerPesoParcialPorId($idParcial){
+		$this->sql = "SELECT peso FROM parcial WHERE id = $idParcial;";
+    	$results = $this->dbcon->query($this->sql);
+        return $results;
+	}
 }
 
 
