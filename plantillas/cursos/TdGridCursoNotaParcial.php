@@ -13,7 +13,7 @@
 		$idCursoNota = $idCurso;
 	
         print '<td contenteditable class="celdaNota" id="celdaNota">' .$notaResult. '</td>';
-    }
+   }
 ?>
 <script>
 		var idCurso = "<?php echo $idCurso; ?>",

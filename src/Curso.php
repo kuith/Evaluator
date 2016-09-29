@@ -27,8 +27,8 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
-    <link href="css/estilos.css" rel="stylesheet" type="text/css"/>
-
+    <!--<link href="css/estilos.css" rel="stylesheet" type="text/css"/>-->
+	<link href="../css/estilos.css" rel="stylesheet" type="text/css"/>
   </head>
   <body>
     <div class = "container">
