@@ -51,9 +51,15 @@ Class CalificacionDb {
 
     /*Obtencion de la nota de un determinado parcial de un determinado alumno y curso*/
     public function obtenerNotaAlumnoCursoParcial($idAlumno, $idCurso, $idParcial){
-        $this->sql = "SELECT nota FROM calificacion WHERE id_alumno = $idAlumno AND id_curso = $idCurso AND id_parcial = $idParcial;";
+        $this->sql = "SELECT id, nota FROM calificacion WHERE id_alumno = $idAlumno AND id_curso = $idCurso AND id_parcial = $idParcial;";
         $results = $this->dbcon->query($this->sql);
         return $results;
     }
+	
+	public function actualizarNota($idCalificacion, $nota){
+		$this->sql = "UPDATE calificacion SET  nota= $nota WHERE id = $idCalificacion";
+		$results = $this->dbcon->query($this->sql);
+        return $results;
+	}
 
 }
