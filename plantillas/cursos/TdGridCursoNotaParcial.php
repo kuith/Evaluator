@@ -15,3 +15,4 @@
 
         printf('<td contenteditable class="celdaNota" id="%s" data-calificacion-id="%s" data-nota-original="%s" >%s</td>', $celdaNotaId, $nota['id'], $notaResult, $notaResult);
    }
+//TODO: tengo que solucionar lo de dar notas por defecto al crear alumnos o parciales....mirar notas

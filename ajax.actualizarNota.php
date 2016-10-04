@@ -9,4 +9,4 @@
 	$calificacionDB = CalificacionDb::getInstance();
 	$calificacionDB->actualizarNota($idCalificacion, $nota);
 	
-	
+	//Expresion regular para un numero del 0 al 10 con dos cifras decimales: ^(10|[0-9](,[0-9]{1,2})?)$------->/gm?
