@@ -36,7 +36,7 @@
 		limpiarNota = function (p_nota) {
 			return Number(p_nota);
 		},
-        celdaBlurListener = function (e) {
+		celdaBlurListener = function (e) {
 			var idCalificacion = e.target.dataset.calificacionId,
 				nota = limpiarNota(e.target.innerHTML),
 				nota_antes = e.target.dataset.notaOriginal,
