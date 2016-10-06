@@ -40,7 +40,7 @@
 			var idCalificacion = e.target.dataset.calificacionId,
 				nota = limpiarNota(e.target.innerHTML),
 				nota_antes = e.target.dataset.notaOriginal,
-				url = '../ajax.actualizarNota.php?idCalificacion=' + idCalificacion + '&nota=' + nota;
+				url = '../ajax.actualizarNota.php?idCalificacion=' + idCalificacion + '&nota=' + nota + '&notaAntes=' + nota_antes;
 
 			if (nota !== nota_antes) {
 				$.ajax(url);
