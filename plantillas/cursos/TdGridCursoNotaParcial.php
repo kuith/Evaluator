@@ -6,7 +6,8 @@
     while ($rowParcial = $parciales->fetch_object()){
         $calificacion = $calificacionesDb->obtenerNotaAlumnoCursoParcial($row->id, $idCurso, $rowParcial->id);
         $nota = mysqli_fetch_assoc($calificacion);
-        $notaResult = (int)$nota['nota'];
+        $notaResultInt = (float)$nota['nota'];
+		$notaResult = number_format($notaResultInt, 2);
 				
 		$idAlumnoNota = $row->id;
 		$idParcialNota = $rowParcial->id;

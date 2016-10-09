@@ -58,8 +58,24 @@ Class CalificacionDb {
 	
 	public function actualizarNota($idCalificacion, $nota){
 		$this->sql = "UPDATE calificacion SET  nota= $nota WHERE id = $idCalificacion";
+		//$this->sql = "UPDATE calificacion SET nota = CAST($nota as DECIMAL(4,2)) WHERE id = $idCalificacion";
 		$results = $this->dbcon->query($this->sql);
         return $results;
 	}
-
+	
+	//Obtener un determinado alumno a partir de un idCalificacion
+	public function obtenerAlumno($idCalificacion){
+		$this->sql = "SELECT id_alumno FROM calificacion WHERE id = $idCalificacion";
+        $results = $this->dbcon->query($this->sql);
+        return $results;
+	}
+	
+	//Obtener un determinado curso a partir de un idCalificacion
+	public function obtenerCurso($idCalificacion){
+		$this->sql = "SELECT id_curso FROM calificacion WHERE id = $idCalificacion";
+        $results = $this->dbcon->query($this->sql);
+        return $results;
+	}
+	
+	
 }

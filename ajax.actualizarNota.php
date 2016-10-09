@@ -10,9 +10,11 @@
 	$notaFormateada = number_format($nota, 2);
 	
 	if ($notaFormateada > 10 || $notaFormateada < 0){
-		header("Location:src/pruebas.php");
+		//aqui debería no hacer nada, pero aún no sé cómo hcerlo.
 	}else{
 		$calificacionDB = CalificacionDb::getInstance();
 		$calificacionDB->actualizarNota($idCalificacion, $notaFormateada);
 	}
+	
+//TODO: no hacer nada cuando la nota no sea correcta.
 	
