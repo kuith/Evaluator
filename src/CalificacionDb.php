@@ -56,6 +56,13 @@ Class CalificacionDb {
         return $results;
     }
 	
+	/*Obtencion de las calificaciones de un determinado alumno y curso que no sea parcial final*/
+    public function obtenerCalificacionesAlumnoCursoNoFinal($idAlumno, $idCurso,$idParcial){
+        $this->sql = "SELECT * FROM calificacion WHERE id_alumno = $idAlumno AND id_curso = $idCurso AND id_parcial != $idParcial;";
+        $results = $this->dbcon->query($this->sql);
+        return $results;
+    }
+	
 	public function actualizarNota($idCalificacion, $nota){
 		$this->sql = "UPDATE calificacion SET  nota= $nota WHERE id = $idCalificacion";
 		//$this->sql = "UPDATE calificacion SET nota = CAST($nota as DECIMAL(4,2)) WHERE id = $idCalificacion";
@@ -63,16 +70,9 @@ Class CalificacionDb {
         return $results;
 	}
 	
-	//Obtener un determinado alumno a partir de un idCalificacion
-	public function obtenerAlumno($idCalificacion){
-		$this->sql = "SELECT id_alumno FROM calificacion WHERE id = $idCalificacion";
-        $results = $this->dbcon->query($this->sql);
-        return $results;
-	}
-	
-	//Obtener un determinado curso a partir de un idCalificacion
-	public function obtenerCurso($idCalificacion){
-		$this->sql = "SELECT id_curso FROM calificacion WHERE id = $idCalificacion";
+	//Obtener una determinada calificacion
+	public function obtenerCalificacion($idCalificacion){
+		$this->sql = "SELECT * FROM calificacion WHERE id = $idCalificacion";
         $results = $this->dbcon->query($this->sql);
         return $results;
 	}
