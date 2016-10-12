@@ -18,16 +18,17 @@
 	}else{
 		$calificacionDB = CalificacionDb::getInstance();
 		$calificacionDB->actualizarNota($idCalificacion, $notaFormateada);
+		//$calificacionDB->actualizarNota($idCalificacion, actualizarNotaFinal());
 		actualizarNotaFinal();
 	}
-	
 	
 	function actualizarNotaFinal(){
 		global $idCurso;
 		global $idCalificacion;
+		$notaFinalActualizada = 0;
 		
 		$parcialDb = parcialDb::getInstance();
-		$idFinal  = $parcialDb->obtenerIdParcialPorNombre(NOMBRE_PARCIAL_FINAL,  $idCurso);
+		$idFinal  = $parcialDb->obtenerIdParcialPorNombreCurso("'".NOMBRE_PARCIAL_FINAL."'",  $idCurso);
 		$idFinalRow = mysqli_fetch_assoc($idFinal);
 		$idParcialFinal = (int)$idFinalRow["id"];
 		
@@ -39,16 +40,28 @@
 		$idCurso = (int)$calificacionRow["id_curso"];
 				    
         $calificaciones = $calificacionDb->obtenerCalificacionesAlumnoCursoNoFinal($idAlumno, $idCurso, $idParcialFinal);
+		$notaFinal = 0;
 		While($calificacionesRow = $calificaciones->fetch_object()){
 			$pesoParcial = $parcialDb->obtenerPesoPArcialPorId($calificacionesRow->id_parcial);
 			$pesoParcialRow = mysqli_fetch_assoc($pesoParcial);
 			$peso = (int)$pesoParcialRow["peso"];
 			
-			$notaFinal =+ (float)((($calificacionesRow->nota)*$peso)/100);
-			printf($notaFinal);
+			$notaRow = (float)$calificacionesRow->nota;
+			$notaFinal += ((($notaRow)*$peso)/100);
 		}
+		$notaFinalActualizada = number_format($notaFinal,2);
+		//return $notaFinalActualizada;
+		echo ($notaFinalActualizada);
 		
+		$calificacionDb = CalificacionDb::getInstance();
+		$idCalificacion =  $calificacionDb->obtenerIdCalificacionIdAlumnoIdParcial($idAlumno, $idFinal);
+		$idCalificacionRow = mysqli_fetch_assoc($idCalificacion);
+		$idCalificacionFinal = (int)$idCalificacionRow["id"];
+		
+		$calificacionDB->actualizarNota($idCalificacionFinal, $notaFinalActualizada);
+				
     }
 	
 //TODO: no hacer nada cuando la nota no sea correcta.
+//TODO: hacer que tambien valide la nota (la escriba y actualice) no solo cuando se hace clic al cambiar de campo sino tambien al tabular
 	

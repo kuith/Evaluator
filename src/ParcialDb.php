@@ -87,10 +87,17 @@ class parcialDb{
 	}
 	
 	//obtener un parcial por nombre y curso
-	public function obtenerIdParcialPorNombre($nombreParcial, $idCurso){
-		$this->sql = "SELECT id_parcial FROM parcial WHERE nombre = $nombreParcial AND id_curso = $idCurso;";
+	public function obtenerIdParcialPorNombreCurso($nombreParcial, $idCurso){
+		$this->sql = "SELECT id FROM parcial WHERE nombre = $nombreParcial AND id_curso = $idCurso;";
 		$results = $this->dbcon->query($this->sql);
         return $results;
+	}
+	
+	//obtener id parcial Final
+	public function obtenerIdParcialFinal(){
+		$this->sql = "SELECT id FROM parcial WHERE nombre = 'Final'";
+		$results = $this->dbcon->query($this->sql);
+        return $results;		
 	}
 }
 

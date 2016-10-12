@@ -63,6 +63,7 @@ Class CalificacionDb {
         return $results;
     }
 	
+	//Actualizar nota
 	public function actualizarNota($idCalificacion, $nota){
 		$this->sql = "UPDATE calificacion SET  nota= $nota WHERE id = $idCalificacion";
 		//$this->sql = "UPDATE calificacion SET nota = CAST($nota as DECIMAL(4,2)) WHERE id = $idCalificacion";
@@ -77,5 +78,20 @@ Class CalificacionDb {
         return $results;
 	}
 	
+	//obtener nota final por idParcial
+	public function obtenerNotaFinal($idParcial){
+		$this->sql = "SELECT nota FROM calificacion WHERE id_parcial = $idParcial";
+        $results = $this->dbcon->query($this->sql);
+        return $results;
+	}
 	
+	//obtener idCalificacion por idAlumno y idParcial
+	public function obtenerIdCalificacionIdAlumnoIdParcial($idAlumno, $idParcial){
+		$this->sql = "SELECT id FROM calificacion WHERE id_alumno = $idAlumno AND id_parcial = $idParcial;";
+        $results = $this->dbcon->query($this->sql);
+        return $results;
+	}
+		
 }
+
+//TODO:meter nombre_parcial en la tabla calificacion?
