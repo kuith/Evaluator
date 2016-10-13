@@ -3,7 +3,7 @@
 	$idParcialFinal = $ParcialDb->obtenerIdParcialFinal();
 	$idRow = mysqli_fetch_assoc($idParcialFinal);
 	$idFinal = (int)$idRow['id'];
-        $celdaNotaId = 'celdaNotaFinal'.$idFinal;
+    $celdaNotaId = 'celdaNotaFinal'.$idFinal;
 	
 	$pesoTotal = $ParcialDb->obtenerPesoTotalParcialesCurso($idCurso);
 	$pesoRow = mysqli_fetch_assoc($pesoTotal);
@@ -16,3 +16,6 @@
 		
 	printf ('<td class = "celdaNotaFinal" id="%s" data-peso-total="%s"> %s </td>', $celdaNotaId, $pesoTotalParciales, $notaFinal);
 	
+
+	
+//TODO: lograr que la celda de la nota Final avise de si se ha alcanzado el 100 en el peso de los parciales

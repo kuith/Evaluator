@@ -93,5 +93,3 @@ Class CalificacionDb {
 	}
 		
 }
-
-//TODO:meter nombre_parcial en la tabla calificacion?

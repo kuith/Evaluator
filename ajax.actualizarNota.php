@@ -1,5 +1,4 @@
 <?php
-
     require "/src/Conexion.php";
     require "/src/CalificacionDb.php";
     require "/src/ParcialDb.php";
@@ -16,31 +15,26 @@
     if ($notaFormateada > 10 || $notaFormateada < 0){
 	//aqui debería no hacer nada, pero aún no sé cómo hcerlo.
 	}else{
-            $calificacionDB = CalificacionDb::getInstance();
-            $calificacionDB->actualizarNota($idCalificacion, $notaFormateada);
-            //$calificacionDB->actualizarNota($idCalificacion, actualizarNotaFinal());
-            actualizarNotaFinal();
+        $calificacionDB = CalificacionDb::getInstance();
+        $calificacionDB->actualizarNota($idCalificacion, $notaFormateada);
+        actualizarNotaFinal();
     }
 	
     function actualizarNotaFinal(){
-        global $idCurso;
-        global $idCalificacion;
-        $notaFinalActualizada = 0;
-	
-        $parcialDb = parcialDb::getInstance();
-        $idFinal  = $parcialDb->obtenerIdParcialPorNombreCurso("'".NOMBRE_PARCIAL_FINAL."'",  $idCurso);
-        $idFinalRow = mysqli_fetch_assoc($idFinal);
-        $idParcialFinal = (int)$idFinalRow["id"];
+        global $idCurso, $idCalificacion;
+		        
+		$idFinal = obtenerIdFinal();
 		
         $califDb = CalificacionDb::getInstance();
         $calificacion = $califDb->obtenerCalificacion($idCalificacion);
         $calificacionRow = mysqli_fetch_assoc($calificacion);
-		
-        $idAlumno = (int)$calificacionRow["id_alumno"];
-        $idCurso = (int)$calificacionRow["id_curso"];
+	
+        $idAlumno = $calificacionRow["id_alumno"];
 				    
-        $calificaciones = $califDb->obtenerCalificacionesAlumnoCursoNoFinal($idAlumno, $idCurso, $idParcialFinal);
+        $calificaciones = $califDb->obtenerCalificacionesAlumnoCursoNoFinal($idAlumno, $idCurso, $idFinal);
         $notaFinal = 0;
+		$parcialDb = parcialDb::getInstance();
+		
         While($calificacionesRow = $calificaciones->fetch_object()){
             $pesoParcial = $parcialDb->obtenerPesoPArcialPorId($calificacionesRow->id_parcial);
             $pesoParcialRow = mysqli_fetch_assoc($pesoParcial);
@@ -49,19 +43,37 @@
             $notaRow = (float)$calificacionesRow->nota;
             $notaFinal += ((($notaRow)*$peso)/100);
         }
+		
         $notaFinalActualizada = number_format($notaFinal,2);
-        //return $notaFinalActualizada;
         	
         $calificacionDb = CalificacionDb::getInstance();
-        $idCalificacion =  $calificacionDb->obtenerIdCalificacionIdAlumnoIdParcial($idAlumno, $idFinal);
+		$idCalFinal = obtenerIdCalificacionFinal($idAlumno,$idFinal);
+        
+		$calificacionDb->actualizarNota($idCalFinal, $notaFinalActualizada);
+	//print($notaFinalActualizada);
+    }
+		
+	function obtenerIdFinal(){
+		global $idCurso;
+	
+		$parcialDb = parcialDb::getInstance();
+        $idFinal  = $parcialDb->obtenerIdParcialPorNombreCurso("'".NOMBRE_PARCIAL_FINAL."'",  $idCurso);
+        $idFinalRow = mysqli_fetch_assoc($idFinal);
+        $idParcialFinal = (int)$idFinalRow["id"];
+		return $idParcialFinal;
+	}
+	
+	function obtenerIdCalificacionFinal($idAlumnoParam, $idFinalParam){
+		global $idCurso;
+		
+		$calificacionDb = CalificacionDb::getInstance();
+        $idCalificacion =  $calificacionDb->obtenerIdCalificacionIdAlumnoIdParcial($idAlumnoParam, $idFinalParam);
         $idCalificacionRow = mysqli_fetch_assoc($idCalificacion);
         $idCalificacionFinal = (int)$idCalificacionRow["id"];
-        
-	$calificacionDB->actualizarNota($idCalificacionFinal, $notaFinalActualizada);
-        
-        print ($notaFinalActualizada);
-    }
+		return $idCalificacionFinal;
+	}
 	
 //TODO: no hacer nada cuando la nota no sea correcta.
 //TODO: hacer que tambien valide la nota (la escriba y actualice) no solo cuando se hace clic al cambiar de campo sino tambien al tabular
+//TODO: hacer que si se escribe solo un número entero, se complete automaticamente con dos decimales a cero.
 	
