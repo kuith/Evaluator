@@ -87,7 +87,7 @@ Class CalificacionDb {
 	
 	//obtener idCalificacion por idAlumno y idParcial
 	public function obtenerIdCalificacionIdAlumnoIdParcial($idAlumno, $idParcial){
-		$this->sql = "SELECT id FROM calificacion WHERE id_alumno = $idAlumno AND id_parcial = $idParcial;";
+	$this->sql = "SELECT id FROM calificacion WHERE id_alumno = $idAlumno AND id_parcial = $idParcial;";
         $results = $this->dbcon->query($this->sql);
         return $results;
 	}
