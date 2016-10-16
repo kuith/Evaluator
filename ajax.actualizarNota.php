@@ -34,7 +34,7 @@
         $calificaciones = $califDb->obtenerCalificacionesAlumnoCursoNoFinal($idAlumno, $idCurso, $idFinal);
         $notaFinal = 0;
 		$parcialDb = parcialDb::getInstance();
-		
+	
         While($calificacionesRow = $calificaciones->fetch_object()){
             $pesoParcial = $parcialDb->obtenerPesoPArcialPorId($calificacionesRow->id_parcial);
             $pesoParcialRow = mysqli_fetch_assoc($pesoParcial);
@@ -50,7 +50,7 @@
 		$idCalFinal = obtenerIdCalificacionFinal($idAlumno,$idFinal);
         
 		$calificacionDb->actualizarNota($idCalFinal, $notaFinalActualizada);
-	//print($notaFinalActualizada);
+	print($notaFinalActualizada);
     }
 		
 	function obtenerIdFinal(){
@@ -64,8 +64,7 @@
 	}
 	
 	function obtenerIdCalificacionFinal($idAlumnoParam, $idFinalParam){
-		global $idCurso;
-		
+	
 		$calificacionDb = CalificacionDb::getInstance();
         $idCalificacion =  $calificacionDb->obtenerIdCalificacionIdAlumnoIdParcial($idAlumnoParam, $idFinalParam);
         $idCalificacionRow = mysqli_fetch_assoc($idCalificacion);

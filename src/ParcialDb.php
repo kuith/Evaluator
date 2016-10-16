@@ -93,7 +93,7 @@ class parcialDb{
         return $results;
 	}
 	
-	//obtener id parcial Final
+	//obtener id parciales Finales
 	public function obtenerIdParcialFinal(){
 		$this->sql = "SELECT id FROM parcial WHERE nombre = 'Final'";
 		$results = $this->dbcon->query($this->sql);

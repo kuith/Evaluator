@@ -26,8 +26,14 @@ Class CalificacionDb {
         }
         return self::$_instance;
     }
+	
+	//nueva calificacion
+	public function nuevaCalificacion($idAlumno, $idCurso, $idParcial, $nota){
+		$this->sql = "INSERT INTO calificacion (id, id_alumno, id_curso, id_parcial, nota) VALUES (null, '$idAlumno', '$idCurso', '$idParcial', '$nota');";
+        $this->dbcon->query($this->sql);
+	}
 
-    /*Obtencion de todas las calificaciones*/
+	/*Obtencion de todas las calificaciones*/
     public function obtenerCalificaciones(){
         $results = $this->dbCon->query("SELECT * FROM calificacion;"); 
         return $results;
@@ -87,9 +93,16 @@ Class CalificacionDb {
 	
 	//obtener idCalificacion por idAlumno y idParcial
 	public function obtenerIdCalificacionIdAlumnoIdParcial($idAlumno, $idParcial){
-	$this->sql = "SELECT id FROM calificacion WHERE id_alumno = $idAlumno AND id_parcial = $idParcial;";
+	$this->sql = "SELECT id FROM calificacion WHERE id_alumno = $idAlumno AND id_parcial = $idParcial";
         $results = $this->dbcon->query($this->sql);
         return $results;
+	}
+	
+	//eliminar las calificaciones de un determinado parcial
+	public function eliminarCalificacionPorParcial($idParcial){
+		$this->sql="DELETE FROM calificacion WHERE id_parcial = $idParcial";
+		$results = $this->dbcon->query($this->sql);
+		return $results;
 	}
 		
 }
