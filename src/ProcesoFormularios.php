@@ -5,13 +5,7 @@
 	require "CalificacionDb.php";
 	
 	include "utiles/funcionesUtiles.php";
-        //define("NOMBRE_PARCIAL_FINAL", "Final");
-        //define("PESO_PARCIAL_FINAL", 0);
-        //define("NOTA_POR_DEFECTO", 0.00);
-        
-	if (!defined('NOMBRE_PARCIAL_FINAL')) define('NOMBRE_PARCIAL_FINAL', 'Final');
-	if (!defined('PESO_PARCIAL_FINAL')) define('NOMBRE_PARCIAL_FINAL', 0);
-	if (!defined('NOTA_POR_DEFECTO')) define('NOMBRE_PARCIAL_FINAL', 0.00);
+        include "utiles/constantes.php";
 	
 	//procesar nuevo curso
 	if ( !empty($_POST["nombre_nuevo_curso"])){
@@ -36,9 +30,8 @@
 	//procesar borrar curso
 	if ( !empty($_POST["borrarCurso"]) ){
 		$idCursoABorrar = $_POST["borrarCurso"];
-
-		$CursoDb = CursoDb::getInstance();
-		$CursoDb -> eliminar($idCursoABorrar);
+                
+                eliminarCurso($idCursoABorrar);
 		header("Location:..\index.php");
 	}
 	
@@ -155,11 +148,9 @@
             }
 	}
 	
-	
 //	function altaNotaPorDefecto($id_curso, $id_parcial, $nota){
 //		
 //	}
 //TODO: hacer que al dar de alta nuevo curso, vuelva a la misma página "curso.php".
 //TODO: intentar separar este archivo en varios organizados por tipos de procesamiento (altas, bajas, actualizaciones , etc).
-//TODO: al eliminar un curso eliminar todo la oasociado a él.
 

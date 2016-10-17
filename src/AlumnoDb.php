@@ -74,4 +74,10 @@ Class AlumnoDb {
         $this->dbcon->query($this->sql);
     }
     
+    //Eliminar alumnos de un curso determinado
+    public function eliminarAlumnoCurso($idCurso){
+        $this->sql = "DELETE FROM alumno WHERE id_curso = $idCurso";
+        $this->dbcon->query($this->sql);
+    }
+    
 }

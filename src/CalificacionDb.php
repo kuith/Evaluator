@@ -104,5 +104,12 @@ Class CalificacionDb {
 		$results = $this->dbcon->query($this->sql);
 		return $results;
 	}
+        
+        //Eliminar las calificaciones de un determinado curso
+        public function eliminarCalificacionesCurso($idCursol){
+		$this->sql="DELETE FROM calificacion WHERE id_curso = $idCursol";
+		$results = $this->dbcon->query($this->sql);
+		return $results;
+	}
 		
 }

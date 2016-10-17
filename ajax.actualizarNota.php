@@ -15,6 +15,7 @@
 	
     if ($notaFormateada > 10 || $notaFormateada < 0){
 	//aqui debería no hacer nada, pero aún no sé cómo hcerlo.
+        
 	}else{
         $calificacionDB = CalificacionDb::getInstance();
         $calificacionDB->actualizarNota($idCalificacion, $notaFormateada);
@@ -34,7 +35,7 @@
 				    
         $calificaciones = $califDb->obtenerCalificacionesAlumnoCursoNoFinal($idAlumno, $idCurso, $idFinal);
         $notaFinal = 0;
-		$parcialDb = parcialDb::getInstance();
+	$parcialDb = parcialDb::getInstance();
 	
         While($calificacionesRow = $calificaciones->fetch_object()){
             $pesoParcial = $parcialDb->obtenerPesoPArcialPorId($calificacionesRow->id_parcial);
@@ -73,7 +74,7 @@
 		return $idCalificacionFinal;
 	}
 	
-//TODO: no hacer nada cuando la nota no sea correcta.
+//TODO: avisar y no hacer nada cuando la nota no sea correcta.
 //TODO: hacer que tambien valide la nota (la escriba y actualice) no solo cuando se hace clic al cambiar de campo sino tambien al tabular
 //TODO: hacer que si se escribe solo un número entero, se complete automaticamente con dos decimales a cero.
 	
