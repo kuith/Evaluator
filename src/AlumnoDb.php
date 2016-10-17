@@ -31,7 +31,14 @@ Class AlumnoDb {
  	public function obtenerAlumnos(){
     	$results = $this->dbCon->query("SELECT * FROM alumno;"); 
         return $results;
-    }  
+    }
+	
+	//Obtener todos los alumnos de un determnado curso
+	public function obtenerAlumnosCurso($idCurso){
+		$this->sql = "SELECT * FROM alumno WHERE id_curso = $idCurso;";
+    	$results = $this->dbcon->query($this->sql);
+        return $results;
+	}
 
 	/*Obtencion de un alumno por su nombre*/
  	public function obtenerAlumnoPorNombre($nombreAlumno){
@@ -47,7 +54,7 @@ Class AlumnoDb {
         return $results;
     }
 	
-	//Obtencion de un parcial de un determinado nombre y curso
+	//Obtencion de un alumno por nombre y curso
     public function obtenerAlumnoPorNombreYCurso($idCurso, $nombreAlumno){
         $this->sql = "SELECT * FROM alumno WHERE id_curso = $idCurso AND nombre = $nombreAlumno;";
     	$results = $this->dbcon->query($this->sql);

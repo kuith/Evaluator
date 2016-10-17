@@ -2,9 +2,13 @@
 	require "CursoDb.php";
 	require "ParcialDb.php";
 	require "AlumnoDb.php";
+	require "CalificacionDb.php";
+	
+	include "utiles/funcionesUtiles.php";
 	
 	define("NOMBRE_PARCIAL_FINAL", "Final");
 	define("PESO_PARCIAL_FINAL", 0);
+	define("NOTA_POR_DEFECTO", 0.00);
 	
 	//procesar nuevo curso
 	if ( !empty($_POST["nombre_nuevo_curso"])){
@@ -21,6 +25,7 @@
 		$idCursoParcialFinal = $cursoParcialFinal["id"];
 		$ParcialDb = ParcialDb::getInstance();
 		$ParcialDb -> nuevo(NOMBRE_PARCIAL_FINAL,$idCursoParcialFinal, PESO_PARCIAL_FINAL);
+
 		header("Location:..\index.php");
 
 	}
@@ -55,10 +60,23 @@
 			//Si el peso es menos de 100 sigo
 			if($pesoTotal <= 100){
 				$ParcialDb -> nuevo($nombre, $idCurso, $peso);
+				
+				//Alta de notas a cero de los alumnos al dar de alta un nuevo parcial
+				
+				//Obtengo el id del parcial que acabo de dar de alta
+				$idParcial = obtenerIdParcialPorNombreCurso($nombre, $idCurso);
+				
+				$alumnoDb = AlumnoDb::getInstance();
+				$alumnos = $alumnoDb->obtenerAlumnosCurso($idCurso);
+				$calificacionDB = CalificacionDb::getInstance();
+				while($rowAlumnos = $alumnos->fetch_object() ){
+					$calificacionDB->nuevaCalificacion($rowAlumnos->id, $idCurso, $idParcial, NOTA_POR_DEFECTO);
+				}
+				//Fin alta de notas a cero de los alumnos al dar de alta un nuevo parcial
+				
 				header("Location:../index.php?idCurso='".$idCurso.'"');
 			} else {
 				header("Location:avisos/pesoExcedido.php?pesoTotalAcumulado='".$pesoTotal."'& idCurso='".$idCurso."'");
-
 			}
 		} else {
 			header("Location:avisos/parcialExistente.php");
@@ -110,14 +128,28 @@
 		//echo($numeroAlumnosEnBd);
 		if($numeroAlumnosEnBd === 0){
 			$AlumnoDb -> nuevoAlumno($nombre, $idCurso);
+					
+			//Asignación nota por defecto a cero del parcial final
+			$idAlumno = obteneridAlumnoPorNombre($nombre);
+			//echo($idAlumno);
+			$idFinal = obtenerIdFinal($idCurso);
+			nuevaCalificacion($idAlumno, $idCurso, $idFinal, NOTA_POR_DEFECTO);
+		
+		
+			//Fin asignación de nota por defecto del parcial final
 			header("Location:../index.php?idCurso='".$idCurso.'"');
 		} else {
 			header("Location:avisos/alumnoExistente.php?nombreAlumno='".$nombre.'"');
 		}
 	}
+	
+	
+	function altaNotaPorDefecto($id_curso, $id_parcial, $nota){
+		
+	}
 //TODO: hacer que al dar de alta nuevo curso, vuelva a la misma página "curso.php".
 //TODO: intentar separar este archivo en varios organizados por tipos de procesamiento (altas, bajas, actualizaciones , etc).
-
+//TODO: al eliminar un curso eliminar todo la oasociado a él.
 
 
 
