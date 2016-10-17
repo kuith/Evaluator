@@ -3,7 +3,8 @@
     require "/src/CalificacionDb.php";
     require "/src/ParcialDb.php";
 	
-    define("NOMBRE_PARCIAL_FINAL", "Final");
+    //define("NOMBRE_PARCIAL_FINAL", "Final");
+    if (!defined('NOMBRE_PARCIAL_FINAL')) define('NOMBRE_PARCIAL_FINAL', 'Final');
 
     $idCalificacion = $_GET["idCalificacion"] ;
     $nota = (float)$_GET["nota"];

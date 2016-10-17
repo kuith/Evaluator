@@ -5,10 +5,13 @@
 	require "CalificacionDb.php";
 	
 	include "utiles/funcionesUtiles.php";
-	
-	define("NOMBRE_PARCIAL_FINAL", "Final");
-	define("PESO_PARCIAL_FINAL", 0);
-	define("NOTA_POR_DEFECTO", 0.00);
+        //define("NOMBRE_PARCIAL_FINAL", "Final");
+        //define("PESO_PARCIAL_FINAL", 0);
+        //define("NOTA_POR_DEFECTO", 0.00);
+        
+	if (!defined('NOMBRE_PARCIAL_FINAL')) define('NOMBRE_PARCIAL_FINAL', 'Final');
+	if (!defined('PESO_PARCIAL_FINAL')) define('NOMBRE_PARCIAL_FINAL', 0);
+	if (!defined('NOTA_POR_DEFECTO')) define('NOMBRE_PARCIAL_FINAL', 0.00);
 	
 	//procesar nuevo curso
 	if ( !empty($_POST["nombre_nuevo_curso"])){
@@ -70,7 +73,7 @@
 				$alumnos = $alumnoDb->obtenerAlumnosCurso($idCurso);
 				$calificacionDB = CalificacionDb::getInstance();
 				while($rowAlumnos = $alumnos->fetch_object() ){
-					$calificacionDB->nuevaCalificacion($rowAlumnos->id, $idCurso, $idParcial, NOTA_POR_DEFECTO);
+				$calificacionDB->nuevaCalificacion($rowAlumnos->id, $idCurso, $idParcial, NOTA_POR_DEFECTO);
 				}
 				//Fin alta de notas a cero de los alumnos al dar de alta un nuevo parcial
 				
@@ -118,39 +121,45 @@
 	//procesar nuevo alumno
 	if ( !empty($_POST["form_nuevo_alumno"]) ){
 
-		$idCurso = $_POST["form_nuevo_alumno"];
-		$nombre = $_POST["nombre_alumno"];
+            $idCurso = $_POST["form_nuevo_alumno"];
+            $nombre = $_POST["nombre_alumno"];
 		
-		$AlumnoDb = AlumnoDb::getInstance();
+            $AlumnoDb = AlumnoDb::getInstance();
 		
-		$alumnoEnBD = $AlumnoDb -> obtenerAlumnoPorNombre("'".$nombre."'");
-		$numeroAlumnosEnBd = (int)$alumnoEnBD -> num_rows;
-		//echo($numeroAlumnosEnBd);
-		if($numeroAlumnosEnBd === 0){
-			$AlumnoDb -> nuevoAlumno($nombre, $idCurso);
-					
-			//Asignación nota por defecto a cero del parcial final
-			$idAlumno = obteneridAlumnoPorNombre($nombre);
-			//echo($idAlumno);
-			$idFinal = obtenerIdFinal($idCurso);
-			nuevaCalificacion($idAlumno, $idCurso, $idFinal, NOTA_POR_DEFECTO);
-		
-		
-			//Fin asignación de nota por defecto del parcial final
-			header("Location:../index.php?idCurso='".$idCurso.'"');
-		} else {
-			header("Location:avisos/alumnoExistente.php?nombreAlumno='".$nombre.'"');
-		}
+            $alumnoEnBD = $AlumnoDb -> obtenerAlumnoPorNombre("'".$nombre."'");
+            $numeroAlumnosEnBd = (int)$alumnoEnBD -> num_rows;
+            //echo($numeroAlumnosEnBd);
+            if($numeroAlumnosEnBd === 0){
+                $AlumnoDb -> nuevoAlumno($nombre, $idCurso);
+	    //Asignación nota por defecto a cero del parcial final
+                $idAlumno = obteneridAlumnoPorNombre($nombre);
+                //echo($idAlumno);
+                $idFinal = obtenerIdFinal($idCurso);
+                nuevaCalificacion($idAlumno, $idCurso, $idFinal, NOTA_POR_DEFECTO);
+            //Fin asignación de nota por defecto del parcial final
+                    
+                    
+                //Asignacion si ya existen parciales de nota por defecto en ellos
+                $parcialesDb = parcialDb::getInstance();
+                $parcialesCurso = $parcialesDb->obtenerParcialesCurso($idCurso);
+                $numeroParciales = (int)$parcialesCurso->num_rows;
+                if($numeroParciales!=0){
+                    while ($parcialesRow = $parcialesCurso->fetch_object()){
+                        nuevaCalificacion($idAlumno, $idCurso, $parcialesRow->id, NOTA_POR_DEFECTO);
+                    }
+                }
+                //Fin asignacion si ya existen parciales de nota por defecto en ellos
+		header("Location:../index.php?idCurso='".$idCurso.'"');
+            } else {
+                header("Location:avisos/alumnoExistente.php?nombreAlumno='".$nombre.'"');
+            }
 	}
 	
 	
-	function altaNotaPorDefecto($id_curso, $id_parcial, $nota){
-		
-	}
+//	function altaNotaPorDefecto($id_curso, $id_parcial, $nota){
+//		
+//	}
 //TODO: hacer que al dar de alta nuevo curso, vuelva a la misma página "curso.php".
 //TODO: intentar separar este archivo en varios organizados por tipos de procesamiento (altas, bajas, actualizaciones , etc).
 //TODO: al eliminar un curso eliminar todo la oasociado a él.
-
-
-
 

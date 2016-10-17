@@ -1,5 +1,6 @@
 <?php
-	define("NOMBRE_PARCIAL_FINAL", "Final");
+	//define("NOMBRE_PARCIAL_FINAL", "Final");
+        if (!defined('NOMBRE_PARCIAL_FINAL')) define('NOMBRE_PARCIAL_FINAL', 'Final');
 	
 	function obtenerIdFinal($idCurso){
 		$parcialDb = parcialDb::getInstance();
