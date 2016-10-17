@@ -23,7 +23,7 @@
     function actualizarNotaFinal(){
         global $idCurso, $idCalificacion;
 		        
-		$idFinal = obtenerIdFinal();
+	$idFinal = obtenerIdFinal();
 		
         $califDb = CalificacionDb::getInstance();
         $calificacion = $califDb->obtenerCalificacion($idCalificacion);
@@ -47,30 +47,30 @@
         $notaFinalActualizada = number_format($notaFinal,2);
         	
         $calificacionDb = CalificacionDb::getInstance();
-		$idCalFinal = obtenerIdCalificacionFinal($idAlumno,$idFinal);
+	$idCalFinal = obtenerIdCalificacionFinal($idAlumno,$idFinal);
         
-		$calificacionDb->actualizarNota($idCalFinal, $notaFinalActualizada);
+	$calificacionDb->actualizarNota($idCalFinal, $notaFinalActualizada);
 	//print($notaFinalActualizada);
     }
 		
 	function obtenerIdFinal(){
-		global $idCurso;
+            global $idCurso;
 	
-		$parcialDb = parcialDb::getInstance();
-        $idFinal  = $parcialDb->obtenerIdParcialPorNombreCurso("'".NOMBRE_PARCIAL_FINAL."'",  $idCurso);
-        $idFinalRow = mysqli_fetch_assoc($idFinal);
-        $idParcialFinal = (int)$idFinalRow["id"];
-		return $idParcialFinal;
+            $parcialDb = parcialDb::getInstance();
+            $idFinal  = $parcialDb->obtenerIdParcialPorNombreCurso("'".NOMBRE_PARCIAL_FINAL."'",  $idCurso);
+            $idFinalRow = mysqli_fetch_assoc($idFinal);
+            $idParcialFinal = (int)$idFinalRow["id"];
+            return $idParcialFinal;
 	}
 	
 	function obtenerIdCalificacionFinal($idAlumnoParam, $idFinalParam){
-		global $idCurso;
+            global $idCurso;
 		
-		$calificacionDb = CalificacionDb::getInstance();
-        $idCalificacion =  $calificacionDb->obtenerIdCalificacionIdAlumnoIdParcial($idAlumnoParam, $idFinalParam);
-        $idCalificacionRow = mysqli_fetch_assoc($idCalificacion);
-        $idCalificacionFinal = (int)$idCalificacionRow["id"];
-		return $idCalificacionFinal;
+            $calificacionDb = CalificacionDb::getInstance();
+            $idCalificacion =  $calificacionDb->obtenerIdCalificacionIdAlumnoIdParcial($idAlumnoParam, $idFinalParam);
+            $idCalificacionRow = mysqli_fetch_assoc($idCalificacion);
+            $idCalificacionFinal = (int)$idCalificacionRow["id"];
+            return $idCalificacionFinal;
 	}
 	
 //TODO: no hacer nada cuando la nota no sea correcta.
