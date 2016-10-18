@@ -24,5 +24,8 @@
 		
     printf ('<td class = "celdaNotaFinal" id="%s" data-peso-total="%s"> %s </td>', $celdaNotaId, $pesoTotalParciales, $notaFinal);
 	
-//TODO: lograr que la celda de la nota Final avise de si se ha alcanzado el 100 en el peso de los parciales
-//TODO: lograr que de igual el orden en que se añadan parciales o alumnos, en cuanto a la inicializacion de las notas a cero.
+
+    //TODO: poner botones de eliminar todos los alumnos y todos los parciales, eliminando los datos en cascada.
+    //TODO: poner accesos a la pagina de inicio.
+    //TODO: filtrar el acceso con contraseña.
+    

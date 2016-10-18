@@ -10,7 +10,7 @@
 //			if (!ok){
 //				window.alert(contenido + "No es un número válido");
 //			} else{
-// 				window.alert("Todo bien");
+// 				window.alert("ok");
 //			}
 //			concole.log(contenido)
 //        };

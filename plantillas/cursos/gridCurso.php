@@ -18,7 +18,14 @@
         	}
 
         ?>
-        <th>Nota Final</th>
+        <th>
+            <?php
+                $pesoParciales = $parcialDb->obtenerPesoTotalParcialesCurso($idCurso);
+                $pesoRow = mysqli_fetch_assoc($pesoParciales);
+                $pesoResult = (int)$pesoRow["pesoTotal"];
+                print "Nota Final. Peso Total: $pesoResult";
+            ?>    
+        </th>
       </tr>
     </thead>
     <tbody>

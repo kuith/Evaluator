@@ -75,6 +75,5 @@
 	}
 	
 //TODO: avisar y no hacer nada cuando la nota no sea correcta.
-//TODO: hacer que tambien valide la nota (la escriba y actualice) no solo cuando se hace clic al cambiar de campo sino tambien al tabular
 //TODO: hacer que si se escribe solo un número entero, se complete automaticamente con dos decimales a cero.
 	
