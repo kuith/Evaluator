@@ -108,4 +108,4 @@ class parcialDb{
 }
 
 
-//TODO: cambair los nombres de funciones tales como nuevo, eliminar, etc a nuevoarcial, elimiarParcial, etc
+

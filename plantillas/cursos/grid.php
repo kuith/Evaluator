@@ -25,7 +25,7 @@
         print '<td>'.$row->id.'</td>';
         print '<td>'.$row->nombre.'</td>';
         print '<td> <a href = "src/Curso.php?idCurso='.$id.'"><img src="imagenes/icon_enter.png" alt="Entrar en curso" id="entrarEnCurso"></a></td>';
-        print '<td><img src="imagenes/icon_edit.png" alt="Editar curso" id="editarCurso"></td>';
+        //print '<td><img src="imagenes/icon_edit.png" alt="Editar curso" id="editarCurso"></td>';
         //print '<td><img src="imagenes/icon_delete.png" alt="Borrar curso" id="borrarCurso"></td>';
         require 'plantillas/cursos/tdBorrarCurso.php';
         print '</tr>';

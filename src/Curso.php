@@ -33,12 +33,13 @@
   <body>
     <div class = "container">
     	<div id="encabezadoTablaCurso" class="center-block">
-	    	<?php print '<h2> Curso: ' .$curso->nombre. '</h2>'; ?>
-	    	<button type="button" id="nuevoParcial" data-toggle="modal" data-target="#modal_nuevo_parcial"class="btn btn-primary">Añadir Parcial</button>
-            <button type="button" id="eliminarParcial" data-toggle="modal" data-target="#modal_eliminar_parcial" class="btn btn-primary">Eliminar Parcial</button>
-	    	<button type="button" id="nuevoAlumno" data-toggle="modal" data-target="#modal_nuevo_alumno" class="btn btn-primary">Añadir Alumno</button>
+            <?php print '<h2> Curso: ' .$curso->nombre. '</h2>'; ?>
+            <button type="button" id="nuevoAlumno" data-toggle="modal" data-target="#modal_nuevo_alumno" class="btn btn-primary">Añadir Alumno</button>
             <button type="button" id="eliminarlumno" data-toggle="modal" data-target="#modal_eliminar_alumno" class="btn btn-primary">Eliminar Alumno</button>
-	    </div>
+            <button type="button" id="nuevoParcial" data-toggle="modal" data-target="#modal_nuevo_parcial"class="btn btn-primary">Añadir Parcial</button>
+            <button type="button" id="eliminarParcial" data-toggle="modal" data-target="#modal_eliminar_parcial" class="btn btn-primary">Eliminar Parcial</button>
+            
+	</div>
         <!--modal prompt nuevo parcial-->
         <?php require 'modal/modalNuevoParcial.php' ?>       
         <!-- Fin modal Prompt nuevo parcial--> 
