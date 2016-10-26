@@ -1,7 +1,7 @@
 <?php
-    require "/src/Conexion.php";
-    require "/src/CalificacionDb.php";
-    require "/src/ParcialDb.php";
+    require "src/Conexion.php";
+    require "src/CalificacionDb.php";
+    require "src/ParcialDb.php";
 	
     //define("NOMBRE_PARCIAL_FINAL", "Final");
     if (!defined('NOMBRE_PARCIAL_FINAL')) define('NOMBRE_PARCIAL_FINAL', 'Final');

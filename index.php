@@ -1,6 +1,6 @@
 <?php
-    require "/src/Conexion.php";
-    require "/src/CursoDb.php";
+    require "src/Conexion.php";
+    require "src/CursoDb.php";
             
     $cursoDb = CursoDb::getInstance();
     $cursos = $cursoDb->obtenerTodos();    
