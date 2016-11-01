@@ -52,7 +52,8 @@
 	$idCalFinal = obtenerIdCalificacionFinal($idAlumno,$idFinal);
         
 	$calificacionDb->actualizarNota($idCalFinal, $notaFinalActualizada);
-	print($notaFinalActualizada);
+	//print($notaFinalActualizada);
+        
     }
 		
 	function obtenerIdFinal(){
@@ -73,7 +74,6 @@
         $idCalificacionFinal = (int)$idCalificacionRow["id"];
 		return $idCalificacionFinal;
 	}
-	
 //TODO: avisar y no hacer nada cuando la nota no sea correcta.
 //TODO: hacer que si se escribe solo un número entero, se complete automaticamente con dos decimales a cero.
 	
