@@ -7,6 +7,7 @@
  
 ?>
 <!-- Inicio grid de cursos -->
+
 <div id="gridCurso" class="center-block">
   <table class="table" id = "tablaContenedora">
     <thead class="thead-inverse">
