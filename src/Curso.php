@@ -10,11 +10,7 @@
 		          
 	$cursoDb = CursoDb::getInstance();
 	$curso = ($cursoDb->obtenerCursoPorId($idCurso)->fetch_object());
-	//$parcialDb = ParcialDb::getInstance();
 
-
-	//$parciales = ($parcialDb->obtenerParcialesCurso($idCurso)->fetch_object());
-	//echo ($curso->nombre);
 ?>
 
 <!DOCTYPE html>
@@ -38,8 +34,8 @@
             <button type="button" id="eliminarlumno" data-toggle="modal" data-target="#modal_eliminar_alumno" class="btn btn-primary">Eliminar Alumno</button>
             <button type="button" id="nuevoParcial" data-toggle="modal" data-target="#modal_nuevo_parcial"class="btn btn-primary">Añadir Parcial</button>
             <button type="button" id="eliminarParcial" data-toggle="modal" data-target="#modal_eliminar_parcial" class="btn btn-primary">Eliminar Parcial</button>
-            
-	</div>
+			<a href="../index.php"><button type="button" class="btn btn-link">Volver</button></a>
+		</div>
         <!--modal prompt nuevo parcial-->
         <?php require 'modal/modalNuevoParcial.php' ?>       
         <!-- Fin modal Prompt nuevo parcial--> 

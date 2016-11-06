@@ -21,11 +21,14 @@
     <body>
       <div class="container">
         <nav class="navbar navbar-dark bg-primary">
-          <div class="nav navbar-nav">
-            <a class="nav-item nav-link active" href="#" id ="nuevo_curso" data-toggle="modal" data-target="#modal_nuevo_curso">Nuevo Curso <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" href="#" id="cursos">Cursos</a>
-          </div>
-        </nav>
+			<div class="nav navbar-nav">
+				<a class="nav-item nav-link active" href="#" id ="nuevo_curso" data-toggle="modal" data-target="#modal_nuevo_curso">Nuevo Curso <span class="sr-only">(current)</span></a>
+				<a class="nav-item nav-link" href="#" id="cursos">Cursos</a>
+				<span class="nav-item pull-xs-right">
+					<a class="nav-item nav-link" href="src/gestionUsuarios.php" id="gestionUsuariosNavItem"><img src="imagenes/settings.png" alt="Gesti&oacute;n Usuarios"></a>
+				</span>
+			</div>
+	    </nav>
         <!--modal prompt -->
         <div class="modal hide fade" id="modal_nuevo_curso">
           <div class="modal-dialog modal-sm" role="document">

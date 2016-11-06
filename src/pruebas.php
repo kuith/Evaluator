@@ -1,6 +1,6 @@
  <?php
- 
-	print '<h1>Si he llegado aquí es que el numero es malo</H1>';
+	$nombreUsuario = $_GET["nombre"];
+	print "<h1>$nombreUsuario</H1>";
 	
 	
 	

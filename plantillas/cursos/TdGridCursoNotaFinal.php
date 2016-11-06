@@ -22,9 +22,8 @@
     $CalificacionFinalRow = mysqli_fetch_assoc($calificacionFinal);
     $notaFinal = number_format($CalificacionFinalRow['nota'],2);
 
-    printf('<div id = "idCeldaNotaFinal">');
     printf ('<td class = "celdaNotaFinal" id="%s" data-peso-total="%s"> %s </td>', $celdaNotaId, $pesoTotalParciales, $notaFinal);
-    printf('</div>');
+
 	
 
     //TODO: poner botones de eliminar todos los alumnos y todos los parciales, eliminando los datos en cascada.
