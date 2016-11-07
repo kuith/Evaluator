@@ -57,6 +57,34 @@
 	    <?php require '../plantillas/cursos/gridCurso.php' ?>
 
     </div>
+      
+<!--    <script>
+        function loadXMLDoc()
+        {
+        var xmlhttp;
+        if (window.XMLHttpRequest)
+          {// code for IE7+, Firefox, Chrome, Opera, Safari
+          xmlhttp=new XMLHttpRequest();
+          }
+        else
+          {// code for IE6, IE5
+          xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+          }
+        xmlhttp.onreadystatechange=function()
+          {
+          if (xmlhttp.readyState==4 && xmlhttp.status==200)
+            {
+            document.getElementById("idCeldaNotaFinal").innerHTML=xmlhttp.responseText; // your div
+            }
+          }
+        xmlhttp.open("GET","curso.php",true); //your php file
+        xmlhttp.send();
+        }
+        window.setInterval(function(){
+          loadXMLDoc();
+        },3000);
+    </script>
+    -->
     <!-- jQuery first, then Bootstrap JS. -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>

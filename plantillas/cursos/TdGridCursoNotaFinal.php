@@ -21,11 +21,14 @@
     $calificacionFinal = $calificacionesDb->obtenerNotaAlumnoCursoParcial($row->id, $idCurso, $idFinal);
     $CalificacionFinalRow = mysqli_fetch_assoc($calificacionFinal);
     $notaFinal = number_format($CalificacionFinalRow['nota'],2);
-		
-    printf ('<td class = "celdaNotaFinal" id="%s" data-peso-total="%s"> %s </td>', $celdaNotaId, $pesoTotalParciales, $notaFinal);
+
+    printf ('<td class = "celdaNotaFinal" id="%s" data-peso-total="%s" data-celda-final-id="%s"> %s </td>', $celdaNotaId, $pesoTotalParciales, $celdaNotaId, $notaFinal);
+
 	
 
     //TODO: poner botones de eliminar todos los alumnos y todos los parciales, eliminando los datos en cascada.
     //TODO: poner accesos a la pagina de inicio.
     //TODO: filtrar el acceso con contraseña.
+    
+    
     
