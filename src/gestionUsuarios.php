@@ -1,5 +1,6 @@
 <?php
 //TODO: pregunta existencial. Si un archico es sobre todo html pero lleva incrustado php ¿La extension deberia ser html o php?
+//TODO:hacer que todos los botones ocupen lo mismo
 ?>
 
 <!DOCTYPE html>
@@ -17,30 +18,28 @@
     </head>
     <body>
 	<div class="container">
-            <div class="row" id = "encabezadoControlUsuarios">
-		<div class="col-sm-4"></div>
-		<div class="col-sm-4">
+        <div class="row" id = "encabezadoControlUsuarios">
+			<div class="col-sm-4"></div>
+			<div class="col-sm-4">
                     <h1> <span class="tag tag-primary">Control de usuarios</span></h1>
+			</div>
+			<div class="col-sm-4"></div>
 		</div>
-		<div class="col-sm-4"></div>
-		</div>
-                    <div class="row filaBotonesGestionUsuarios">
+        <div class="row filaBotonesGestionUsuarios">
 			<div class="col-sm-5 "><button type="button" data-toggle="modal" data-target="#modal_nuevo_usuario" class="btn btn-success btn-block">Añadir usaurio</button></div>
 			<div class="col-sm-2 "></div>
 			<div class="col-sm-5 ">
-			<!--<button type="button" data-toggle="modal" data-target="#modal_eliminar_usuario" class="btn btn-success btn-block">Eliminar usuario</button>-->
-                            <form class="form-inline" method="POST" action="ProcesoUsuarios.php">
-				<div class="form-group">
-                                    <label for="nombre_eliminar_usuario">Nombre:</label>
-                                    <input type="text" class="form-control" name = "nombre_eliminar_usuario" id="">
-				</div>
-				<button type="submit" class="btn btn-primary">Eliminar</button>
-                            </form>
+			    <form class="form-inline" method="POST" action="ProcesoUsuarios.php">
+					<div class="form-group">
+						<label for="nombre_eliminar_usuario">Nombre:</label>
+						<input type="text" class="form-control" name = "nombre_eliminar_usuario" id="">
+					</div>
+					<button type="submit" class="btn btn-primary">Eliminar</button>
+                </form>
 			</div>
-			</div>
+		</div>
 			<div class="row filaBotonesGestionUsuarios">
 				<div class="col-sm-5 ">
-					<!--<button type="button" class="btn btn-success btn-block">Buscar usuario</button>-->
 					<form class="form-inline" method="POST" action="ProcesoUsuarios.php">
 						<div class="form-group">
 						  <label for="nombre_buscar_usuario">Nombre:</label>
@@ -50,23 +49,23 @@
 					</form>
 				</div>
 				<div class="col-sm-2 "></div>
-				<div class="col-sm-5 "><button type="button" class="btn btn-success btn-block">Listar usaurios</button></div>
+				<div class="col-sm-5 "><button type="button" class="btn btn-success btn-block">Listar usuarios</button></div>
 			</div>
-			<div class="row filaBotonesGestionUsuarios">
-				<div class="col-sm-5 "><button type="button" class="btn btn-success btn-block">Gesti&oacute;n de roles</button></div>
-				<div class="col-sm-2 "></div>
-				<div class="col-sm-5 "><a href="../index.php" class="btn btn-secondary btn-block " role="button" aria-pressed="true">Volver</a></div>
-			</div>
-			
-			<!--Modal prompt nuevo usuario-->
-			<?php require 'modal/modalNuevoUsuario.php' ?> 
-			<!--Fin modal prompt nuevo usuario-->
-			
-			<!--Modal prompt eliminar usuario-->
-			<?php require 'modal/modalEliminarUsuario.php' ?>
-			<!--Fin modal prompt eliminar usuario-->
-			
+		<div class="row filaBotonesGestionUsuarios">
+			<div class="col-sm-5 "><button type="button" class="btn btn-success btn-block">Gesti&oacute;n de roles</button></div>
+			<div class="col-sm-2 "></div>
+			<div class="col-sm-5 "><a href="../index.php" class="btn btn-secondary btn-block " role="button" aria-pressed="true">Volver</a></div>
 		</div>
+			
+		<!--Modal prompt nuevo usuario-->
+		<?php require 'modal/modalNuevoUsuario.php' ?> 
+		<!--Fin modal prompt nuevo usuario-->
+		
+		<!--Modal prompt eliminar usuario-->
+		<?php require 'modal/modalEliminarUsuario.php' ?>
+		<!--Fin modal prompt eliminar usuario-->
+			
+	</div>
 
 		<!-- jQuery first, then Tether, then Bootstrap JS. -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>

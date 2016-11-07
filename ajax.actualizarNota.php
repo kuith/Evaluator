@@ -6,7 +6,7 @@
     //define("NOMBRE_PARCIAL_FINAL", "Final");
     if (!defined('NOMBRE_PARCIAL_FINAL')) define('NOMBRE_PARCIAL_FINAL', 'Final');
 
-    $idCalificacion = $_GET["idCalificacion"] ;
+    $idCalificacion = $_GET["idCalificacion"];
     $nota = (float)$_GET["nota"];
     $notaAntes = (float)$_GET["notaAntes"];
     $idCurso = (int)$_GET["idCurso"];
