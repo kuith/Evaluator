@@ -24,7 +24,6 @@
                   <?php
                     print'<button type="submit" class="btn btn-primary" name = "form_nuevo_alumno" value='.$idCurso.' >Enviar</button>';
                   ?>
-
                 </div>
               </form>
 

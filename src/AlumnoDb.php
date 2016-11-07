@@ -27,22 +27,22 @@ Class AlumnoDb {
         return self::$_instance;
     }
 
-	/*Obtencion de todos los alumnos*/
- 	public function obtenerAlumnos(){
+    /*Obtencion de todos los alumnos*/
+    public function obtenerAlumnos(){
     	$results = $this->dbCon->query("SELECT * FROM alumno;"); 
         return $results;
     }
 	
-	//Obtener todos los alumnos de un determnado curso
-	public function obtenerAlumnosCurso($idCurso){
-		$this->sql = "SELECT * FROM alumno WHERE id_curso = $idCurso;";
+    //Obtener todos los alumnos de un determnado curso
+    public function obtenerAlumnosCurso($idCurso){
+	$this->sql = "SELECT * FROM alumno WHERE id_curso = $idCurso;";
     	$results = $this->dbcon->query($this->sql);
         return $results;
-	}
+    }
 
-	/*Obtencion de un alumno por su nombre*/
- 	public function obtenerAlumnoPorNombre($nombreAlumno){
-		$this->sql = "SELECT * FROM alumno WHERE nombre = $nombreAlumno;";
+    /*Obtencion de un alumno por su nombre*/
+    public function obtenerAlumnoPorNombre($nombreAlumno){
+	$this->sql = "SELECT * FROM alumno WHERE nombre = $nombreAlumno;";
     	$results = $this->dbcon->query($this->sql); 
         return $results;
     }  

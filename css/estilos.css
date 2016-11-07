@@ -18,3 +18,18 @@ body {overflow: scroll;}
 .celdaNotaFinal{
     background-color: lightsteelblue;
 }
+
+.filaBotonesGestionUsuarios{
+    margin-top: 25px;
+}
+
+.botonControlUsuarios{
+    margin: 10px;
+}
+
+.colorControl{
+    background-color: red;
+}
+.colorControl2{
+    background-color: blue;
+}

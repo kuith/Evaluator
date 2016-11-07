@@ -31,7 +31,7 @@
 	if ( !empty($_POST["borrarCurso"]) ){
 		$idCursoABorrar = $_POST["borrarCurso"];
                 
-                eliminarCurso($idCursoABorrar);
+        eliminarCurso($idCursoABorrar);
 		header("Location:..\index.php");
 	}
 	
@@ -153,4 +153,6 @@
 //	}
 //TODO: hacer que al dar de alta nuevo curso, vuelva a la misma página "curso.php".
 //TODO: intentar separar este archivo en varios organizados por tipos de procesamiento (altas, bajas, actualizaciones , etc).
+//TODO: mirar si ya existe el nuevo curso antes de darlo de alta
+
 
