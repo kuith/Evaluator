@@ -29,32 +29,22 @@
 			<div class="col-sm-5 "><button type="button" data-toggle="modal" data-target="#modal_nuevo_usuario" class="btn btn-success btn-block">Añadir usaurio</button></div>
 			<div class="col-sm-2 "></div>
 			<div class="col-sm-5 ">
-			    <form class="form-inline" method="POST" action="ProcesoUsuarios.php">
+				<form class="form-inline" method="POST" action="ProcesoUsuarios.php">
 					<div class="form-group">
-						<label for="nombre_eliminar_usuario">Nombre:</label>
-						<input type="text" class="form-control" name = "nombre_eliminar_usuario" id="">
+						<label for="nombre_buscar_usuario">Nombre:</label>
+						<input type="text" class="form-control" name="nombre_buscar_usuario">
 					</div>
-					<button type="submit" class="btn btn-primary">Eliminar</button>
-                </form>
+					<button type="submit" class="btn btn-primary">Buscar</button>
+				</form>
 			</div>
 		</div>
-			<div class="row filaBotonesGestionUsuarios">
-				<div class="col-sm-5 ">
-					<form class="form-inline" method="POST" action="ProcesoUsuarios.php">
-						<div class="form-group">
-						  <label for="nombre_buscar_usuario">Nombre:</label>
-						  <input type="text" class="form-control" name="nombre_buscar_usuario">
-						</div>
-						<button type="submit" class="btn btn-primary">Buscar</button>
-					</form>
-				</div>
-				<div class="col-sm-2 "></div>
-				<div class="col-sm-5 "><button type="button" class="btn btn-success btn-block">Listar usuarios</button></div>
-			</div>
 		<div class="row filaBotonesGestionUsuarios">
-			<div class="col-sm-5 "><button type="button" class="btn btn-success btn-block">Gesti&oacute;n de roles</button></div>
+			<div class="col-sm-5 "><button type="button" class="btn btn-success btn-block">Listar usuarios</button></div>
 			<div class="col-sm-2 "></div>
-			<div class="col-sm-5 "><a href="../index.php" class="btn btn-secondary btn-block " role="button" aria-pressed="true">Volver</a></div>
+			<div class="col-sm-5 "><button type="button" class="btn btn-success btn-block">Gesti&oacute;n de roles</button></div>
+		</div>
+		<div class="row filaBotonesGestionUsuarios">
+			<div class="col-sm-2 "><a href="../index.php" class="btn btn-secondary btn-block " role="button" aria-pressed="true">Volver</a></div>
 		</div>
 			
 		<!--Modal prompt nuevo usuario-->
@@ -73,3 +63,4 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
 	</body>
 </html>
+<!--//TODO: filtrar la introduccion de datos, no permitir vacíos, etc.-->

@@ -43,6 +43,12 @@
             $this->sql = "DELETE FROM usuario WHERE nombre = $nombre";
             $this->dbcon->query($this->sql);
 	}
+	
+	//Eliminar un usuario por id
+        public function eliminarUsuarioPorId($id){
+            $this->sql = "DELETE FROM usuario WHERE id = $id";
+            $this->dbcon->query($this->sql);
+	}
 		
 	//buscar usuario por nombre
 	public function buscarUsuarioPorNombre($nombreUsuario){

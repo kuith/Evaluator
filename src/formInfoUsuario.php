@@ -25,26 +25,35 @@
         <link href="../css/estilos.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-		<div class ="container">
+		<div class ="container center">
 			<h3>Usuario: <?php print $nombreActual?></h3>
 			<form  method="POST" action="ProcesoUsuarios.php">
-				<div class="form-group">
-					<label for="nombre">Nombre:</label>
-					<input type="text" class="form-control" name ="nuevoNombreUsuario" id="nombre" placeholder="<?php print $nombreActual?>">
-				</div>
-				<div class="form-group">
-					<label for="password">Contraseña:</label>
-					<input type="text" class="form-control" name ="nuevoPasswordUsuario" id="password" placeholder="<?php print $passwordActual?>">
-				</div>
-				<div class="form-group">
-					<label for="rol">Rol:</label>
-					<input type="text" class="form-control" name ="nuevoRolUsuario" id="rol" placeholder="<?php print $rolActual?>">
-				</div>
-				
+				<input type="hidden" name="idUsuarioActualizar" value="<?php print $idActual?>">
 				<div class="form-group row">
-					<button type="submit" class="btn btn-primary col-sm-5">Submit</button>
-					<div class="col-sm-2"></div>
-					<a href="gestionUsuarios.php" class="btn btn-secondary col-sm-5" role="button" aria-pressed="true">Volver</a>
+					<div class="col-sm-6">
+						<label for="nombre">Nombre:</label>
+						<input type="text" class="form-control" name ="nombreUsuarioActualizar" id="nombre" placeholder="<?php print $nombreActual?>">
+					</div>
+				</div>
+				<div class="form-group row">
+					<div class="col-sm-6">
+						<label for="password">Contraseña:</label>
+						<input type="text" class="form-control" name ="passwordUsuarioActualizar" id="password" placeholder="<?php print $passwordActual?>">
+					</div>
+				</div>
+				<div class="form-group row">
+					<div class="col-sm-6">
+						<label for="rol">Rol:</label>
+						<input type="text" class="form-control" name ="rolUsuarioActualizar" id="rol" placeholder="<?php print $rolActual?>">
+					</div>
+				</div>
+
+				<div class="form-group row">
+					<div class="col-sm-12">
+						<button type="submit" class="btn btn-success" >Aplicar Cambios</button>
+						<a href="ProcesoUsuarios.php?idUsuarioEliminar=<?php print $idActual?>" class="btn btn-danger" role="button" aria-pressed="true">Eliminar Usuario</a>
+						<a href="gestionUsuarios.php" class="btn btn-secondary" role="button" aria-pressed="true">Volver</a>
+					</div>
 				</div>
 			</form>
 		</div>
