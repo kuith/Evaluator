@@ -15,12 +15,17 @@
 //        print $numero;
 // 
 	$id = $_GET["id"];
+	$nombre = $_GET["nombreUsuario"];
+	$password = $_GET["password"];
 	
 	print '<h1>id: </h1>';
 	print $id;
 	
+	print '<h1>nombre: </h1>';
+	print $nombre;
 	
-
+	print '<h1>contraseña: </h1>';
+	print $password;
 
 	
 	

@@ -73,12 +73,13 @@
 	//Procsar actualizar usuario
 	if(!empty($_POST["idUsuarioActualizar"])){
 		$idUsuario = $_POST["idUsuarioActualizar"];
-		$nuevoMombre = $_POST["nombreUsuarioActualizar"];
+		$nuevoNombre = $_POST["nombreUsuarioActualizar"];
 		$nuevoPassword = $_POST["passwordUsuarioActualizar"];
 		$nuevoRol = $_POST["rolUsuarioActualizar"];
 		
 		$UsuarioDb = UsuarioDb::getInstance();
-		
+		$UsuarioDb->actualizarUsuarioPorId($idUsuario, "'".$nuevoNombre."'", "'".$nuevoPassword."'", "'".$nuevoRol."'");
+		header("Location:gestionUsuarios.php");
 	}
 	
 

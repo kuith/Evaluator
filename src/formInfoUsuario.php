@@ -32,19 +32,19 @@
 				<div class="form-group row">
 					<div class="col-sm-6">
 						<label for="nombre">Nombre:</label>
-						<input type="text" class="form-control" name ="nombreUsuarioActualizar" id="nombre" placeholder="<?php print $nombreActual?>">
+						<input type="text" class="form-control" name ="nombreUsuarioActualizar" id="nombre" value="<?php print $nombreActual?>">
 					</div>
 				</div>
 				<div class="form-group row">
 					<div class="col-sm-6">
 						<label for="password">Contraseña:</label>
-						<input type="text" class="form-control" name ="passwordUsuarioActualizar" id="password" placeholder="<?php print $passwordActual?>">
+						<input type="text" class="form-control" name ="passwordUsuarioActualizar" id="password" value="<?php print $passwordActual?>">
 					</div>
 				</div>
 				<div class="form-group row">
 					<div class="col-sm-6">
 						<label for="rol">Rol:</label>
-						<input type="text" class="form-control" name ="rolUsuarioActualizar" id="rol" placeholder="<?php print $rolActual?>">
+						<input type="text" class="form-control" name ="rolUsuarioActualizar" id="rol" value="<?php print $rolActual?>">
 					</div>
 				</div>
 
