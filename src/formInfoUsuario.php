@@ -25,7 +25,7 @@
         <link href="../css/estilos.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-		<div class ="container center">
+		<div class ="container">
 			<h3>Usuario: <?php print $nombreActual?></h3>
 			<form  method="POST" action="ProcesoUsuarios.php">
 				<input type="hidden" name="idUsuarioActualizar" value="<?php print $idActual?>">
