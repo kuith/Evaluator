@@ -14,13 +14,10 @@
 //        print '<h1>numero: </h1>';
 //        print $numero;
 // 
-	$id = $_GET["id"];
 	$nombre = $_GET["nombreUsuario"];
 	$password = $_GET["password"];
 	
-	print '<h1>id: </h1>';
-	print $id;
-	
+
 	print '<h1>nombre: </h1>';
 	print $nombre;
 	
