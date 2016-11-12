@@ -24,7 +24,7 @@
 			<div class="col-sm-5 "><button type="button" data-toggle="modal" data-target="#modal_nuevo_usuario" class="btn btn-success btn-block">Añadir usaurio</button></div>
 			<div class="col-sm-2 "></div>
 			<div class="col-sm-5 ">
-				<form class="form-inline" method="POST" action="ProcesoUsuarios.php">
+				<form class="form-inline" method="POST" action="../src/procesadores/ProcesoUsuarios.php">
 					<div class="form-group">
 						<label for="nombre_buscar_usuario">Nombre:</label>
 						<input type="text" class="form-control" name="nombre_buscar_usuario">

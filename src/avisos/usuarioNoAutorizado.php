@@ -1,6 +1,3 @@
-<?php
-	$nombreAlumno=$_GET['nombreAlumno'];
-?>
 <!DOCTYPE html>
 <html lang="es">
 	<head>
@@ -15,7 +12,7 @@
 			<div class="card card-block">
 				<h4 class="card-title">Usuario No Autorizado</h4>
 				<p class="card-text">El usuario introducido no está autorizado a entrar en el sitio.</p>
-				<a href="../../index.php" class="card-link">Volver</a>
+				<a href="../../inicio.php" class="card-link">Volver</a>
 			</div>
 		</div>
 		

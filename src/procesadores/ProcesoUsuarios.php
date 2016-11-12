@@ -1,5 +1,5 @@
 <?php
-    require "UsuarioDb.php";
+    require "../UsuarioDb.php";
 
     //Procesar nuevo usuario
     if ( !empty($_POST["nombre_nuevo_usuario"])){
@@ -12,10 +12,10 @@
 		$numConcidencias = (int)$coincidencias -> num_rows;
 
 		if($numConcidencias != 0){
-				header("Location:avisos/usuarioNoValido.php");
+				header("Location:../avisos/usuarioNoValido.php");
 			} else {
 				$UsuarioDb -> nuevo($nombreUsuario, $password, $rol);
-				header("Location:../src/gestionUsuarios.php");
+				header("Location:../gestionUsuarios.php");
 				//header('Location:../src/pruebas.php?numero='.$numeroUsuariosEncontrados."& nombreUsuario=" .$nombreUsuario. "& password=" .$password);
 			}
 	}
@@ -29,10 +29,10 @@
         $numConcidencias = (int)$coincidencias -> num_rows;
 		
         if($numConcidencias === 0){
-			header("Location:avisos/usuarioParaEliminarNoEncontrado.php");
+			header("Location:../avisos/usuarioParaEliminarNoEncontrado.php");
 		} else {
 			$UsuarioDb -> eliminarPorNombre("'".$nombreUsuario."'");
-			header("Location:../src/gestionUsuarios.php");
+			header("Location:../gestionUsuarios.php");
 		}
 	}
 	
@@ -57,7 +57,7 @@
         $numConcidencias = (int)$coincidencias -> num_rows;
 		
         if($numConcidencias === 0){
-			header("Location:avisos/usuarioNoEncontrado.php");
+			header("Location:../avisos/usuarioNoEncontrado.php");
 		} else {
 			$rowUsuario = $coincidencias->fetch_object();
 			$idUsuarioObtenido = $rowUsuario->id;
@@ -65,7 +65,7 @@
 			$passwordUsuarioObtenido = $rowUsuario->password;
 			$rolUsuarioObtenido = $rowUsuario->rol;
 			
-			header("Location:formInfoUsuario.php?id=" .$idUsuarioObtenido. "& nombre=" .$nombreUsuarioObtenido. "& password=" .$passwordUsuarioObtenido. "& rol=" .$rolUsuarioObtenido);
+			header("Location:../formInfoUsuario.php?id=" .$idUsuarioObtenido. "& nombre=" .$nombreUsuarioObtenido. "& password=" .$passwordUsuarioObtenido. "& rol=" .$rolUsuarioObtenido);
 			
 		}
 	}
@@ -79,7 +79,7 @@
 		
 		$UsuarioDb = UsuarioDb::getInstance();
 		$UsuarioDb->actualizarUsuarioPorId($idUsuario, "'".$nuevoNombre."'", "'".$nuevoPassword."'", "'".$nuevoRol."'");
-		header("Location:gestionUsuarios.php");
+		header("Location:../gestionUsuarios.php");
 	}
 	
 

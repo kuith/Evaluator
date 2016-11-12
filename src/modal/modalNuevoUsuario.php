@@ -8,7 +8,7 @@
 		<h4 class="modal-title">Añadir Usuario</h4>
             </div>
 
-            <form  method="POST" action="../src/ProcesoUsuarios.php">
+            <form  method="POST" action="../src/procesadores/ProcesoUsuarios.php">
                 <div class="modal-body">
                     <div class="form-group">
 			<label for="nombre_usuario" class="form-control-label">Nombre usuario:</label>

@@ -27,7 +27,7 @@
     <body>
 		<div class ="container">
 			<h3>Usuario: <?php print $nombreActual?></h3>
-			<form  method="POST" action="ProcesoUsuarios.php">
+			<form  method="POST" action="procesadores/ProcesoUsuarios.php">
 				<input type="hidden" name="idUsuarioActualizar" value="<?php print $idActual?>">
 				<div class="form-group row">
 					<div class="col-sm-6">
@@ -51,7 +51,7 @@
 				<div class="form-group row">
 					<div class="col-sm-12">
 						<button type="submit" class="btn btn-success" >Aplicar Cambios</button>
-						<a href="ProcesoUsuarios.php?idUsuarioEliminar=<?php print $idActual?>" class="btn btn-danger" role="button" aria-pressed="true">Eliminar Usuario</a>
+						<a href="procesadores/ProcesoUsuarios.php?idUsuarioEliminar=<?php print $idActual?>" class="btn btn-danger" role="button" aria-pressed="true">Eliminar Usuario</a>
 						<a href="gestionUsuarios.php" class="btn btn-secondary" role="button" aria-pressed="true">Volver</a>
 					</div>
 				</div>

@@ -9,7 +9,7 @@
 
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
-		<link href="css/estilos.css" rel="stylesheet" type="text/css"/>
+		<link href="../css/estilos.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
 		<div class="container">
@@ -20,7 +20,7 @@
 				</div>
 				<div class="col-sm-4"></div>
 			</div>
-			<form class="form" method="GET" action="src/ProcesoAcceso.php">
+			<form class="form" method="POST" action="src/procesadores/ProcesoAcceso.php">
 				<div class="form-group row">
 					<label for="accesoUsuario" class="offset-sm-2 col-sm-2 col-form-label">Usuario</label>
 					<div class="col-sm-6">
