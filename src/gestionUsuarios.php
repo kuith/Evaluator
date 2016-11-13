@@ -21,7 +21,7 @@
 			<div class="col-sm-4"></div>
 		</div>
         <div class="row filaBotonesGestionUsuarios">
-			<div class="col-sm-5 "><button type="button" data-toggle="modal" data-target="#modal_nuevo_usuario" class="btn btn-success btn-block">Añadir usaurio</button></div>
+			<div class="col-sm-5 "><button type="button" data-toggle="modal" data-target="#modal_nuevo_usuario" class="btn btn-success btn-block">Añadir usuario</button></div>
 			<div class="col-sm-2 "></div>
 			<div class="col-sm-5 ">
 				<form class="form-inline" method="POST" action="../src/procesadores/ProcesoUsuarios.php">
