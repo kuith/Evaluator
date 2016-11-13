@@ -12,7 +12,7 @@
 			<div class="card card-block">
 				<h4 class="card-title">Nota no numérica</h4>
 				<p class="card-text">Ha introducido una nota no numérica. No se han producido cambios en la base de datos.</p>
-				<a href="../../index.php" class="card-link">Volver</a>
+				<a href="../../inicioCursos.php" class="card-link">Volver</a>
 			</div>
 		</div>
 		

@@ -27,8 +27,6 @@
 	
 
     //TODO: poner botones de eliminar todos los alumnos y todos los parciales, eliminando los datos en cascada.
-    //TODO: poner accesos a la pagina de inicio.
-    //TODO: filtrar el acceso con contraseña.
     
     
     

@@ -23,7 +23,7 @@
 		$ParcialDb = ParcialDb::getInstance();
 		$ParcialDb -> nuevo(NOMBRE_PARCIAL_FINAL,$idCursoParcialFinal, PESO_PARCIAL_FINAL);
 
-		header("Location:..\index.php");
+		header("Location:..\inicioCursos.php");
 
 	}
 	
@@ -32,7 +32,7 @@
 		$idCursoABorrar = $_POST["borrarCurso"];
                 
         eliminarCurso($idCursoABorrar);
-		header("Location:..\index.php");
+		header("Location:..\inicioCursos.php");
 	}
 	
 	//procesar nuevo parcial
@@ -70,7 +70,7 @@
 				}
 				//Fin alta de notas a cero de los alumnos al dar de alta un nuevo parcial
 				
-				header("Location:../index.php?idCurso='".$idCurso.'"');
+				header("Location:../inicioCursos.php?idCurso='".$idCurso.'"');
 			} else {
 				header("Location:avisos/pesoExcedido.php?pesoTotalAcumulado='".$pesoTotal."'& idCurso='".$idCurso."'");
 			}
@@ -91,7 +91,7 @@
 			header("Location:avisos/parcialParaEliminarNoEncontrado.php");
 		} else {
 			$ParcialDb -> elimiarParcialPorNombreYCurso($idCurso, "'".$nombre."'");
-			header("Location:../index.php?idCurso='".$idCurso.'"');
+			header("Location:../inicioCursos.php?idCurso='".$idCurso.'"');
 		}
 	}
 	
@@ -107,7 +107,7 @@
 			header("Location:avisos/alumnoNoExistente.php?nombreAlumno='".$nombre.'"');
 		} else {
 			$alumnosDb -> eliminarAlumno("'".$nombre."'");
-			header("Location:../index.php?idCurso='".$idCurso.'"');
+			header("Location:../inicioCursos.php?idCurso='".$idCurso.'"');
 		}
 	}
 	
@@ -142,7 +142,7 @@
                     }
                 }
                 //Fin asignacion si ya existen parciales de nota por defecto en ellos
-		header("Location:../index.php?idCurso='".$idCurso.'"');
+		header("Location:../inicioCursos.php?idCurso='".$idCurso.'"');
             } else {
                 header("Location:avisos/alumnoExistente.php?nombreAlumno='".$nombre.'"');
             }
@@ -152,7 +152,6 @@
 //		
 //	}
 //TODO: hacer que al dar de alta nuevo curso, vuelva a la misma página "curso.php".
-//TODO: intentar separar este archivo en varios organizados por tipos de procesamiento (altas, bajas, actualizaciones , etc).
 //TODO: mirar si ya existe el nuevo curso antes de darlo de alta
 
 

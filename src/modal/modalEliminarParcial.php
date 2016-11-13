@@ -14,7 +14,7 @@
 				<div class="modal-body">
 					<div class="form-group">
 						<label for="nombre_parcial" class="form-control-label">Nombre del parcial:</label>
-						<input type="text" class="form-control" name = "nombre_parcial" id="nombre_parcial">
+						<input type="text" class="form-control" name = "nombre_parcial" id="nombre_parcial" required>
 					</div>
 				</div>
 				<div class="modal-footer">

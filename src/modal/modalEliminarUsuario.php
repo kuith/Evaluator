@@ -12,7 +12,7 @@
 				<div class="modal-body">
 					<div class="form-group">
 						<label for="nombre_eliminar_usuario" class="form-control-label">Nombre usuario:</label>
-						<input type="text" class="form-control" name = "nombre_eliminar_usuario" id="">
+						<input type="text" class="form-control" name = "nombre_eliminar_usuario" required>
 					</div>
 				</div>
 				<div class="modal-footer">

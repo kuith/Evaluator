@@ -16,7 +16,7 @@
                 <div class="modal-body">
                     <div class="form-group">
                       <label for="nombre_alumno" class="form-control-label">Nombre del alumno:</label>
-                      <input type="text" class="form-control" name = "nombre_alumno" id="nombre_alumno">
+                      <input type="text" class="form-control" name = "nombre_alumno" id="nombre_alumno" required>
                     </div>
                 </div>
                 <div class="modal-footer">

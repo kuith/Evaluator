@@ -71,6 +71,13 @@
 			return $result;
 		}
 		
+		//buscar usaurio por nombre y por contraseña
+		public function buscarUsuarioPorNombreYPassword($nombre, $password){
+			$this -> sql = "SELECT * FROM usuario WHERE nombre = $nombre AND password = $password;";
+			$result = $this->dbcon->query($this->sql);
+			return $result;
+		}
+		
 		//actualizar usuario fijando el id
 		public function actualizarUsuarioPorId($id, $nombre, $password, $rol){
 			$this->sql = "UPDATE usuario SET nombre = $nombre, password = $password, rol = $rol WHERE id = $id";

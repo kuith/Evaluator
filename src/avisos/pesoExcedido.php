@@ -17,7 +17,7 @@
 				<h4 class="card-title">Peso Superior al 100%</h4>
 				<p class="card-text">El peso total de los parciales del curso es superior al 100%.</p>
 				<p class="card-text">El peso total actual es: <?php print $pesoTotalCumulado ?> .</p>
-				<a href="../../index.php?idCurso="<?php print $idCurso. '"' ?> class="card-link">Volver</a>
+				<a href="../../inicioCursos.php?idCurso="<?php print $idCurso. '"' ?> class="card-link">Volver</a>
 			</div>
 		</div>
 	<!-- jQuery first, then Tether, then Bootstrap JS. -->

@@ -12,13 +12,13 @@
                 <div class="modal-body">
                     <div class="form-group">
 			<label for="nombre_usuario" class="form-control-label">Nombre usuario:</label>
-			<input type="text" class="form-control" name = "nombre_nuevo_usuario" id="">
+			<input type="text" class="form-control" name = "nombre_nuevo_usuario" required>
                         
 			<label for="password" class="form-control-label">Contraseña:</label>
-			<input type="text" class="form-control" name = "password_nuevo_usuario" id="">
+			<input type="text" class="form-control" name = "password_nuevo_usuario" required>
                         
 			<label for="rol" class="form-control-label">Rol:</label>
-			<input type="text" class="form-control" name = "rol_nuevo_usuario" id="">
+			<input type="text" class="form-control" name = "rol_nuevo_usuario" required>
                     </div>
 		</div>
                 <div class="modal-footer">

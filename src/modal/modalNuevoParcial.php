@@ -15,9 +15,9 @@
                 <div class="modal-body">
                     <div class="form-group">
                       <label for="nombre_curso" class="form-control-label">Nombre del parcial:</label>
-                      <input type="text" class="form-control" name = "nombre_parcial" id="nombre_parcial">
+                      <input type="text" class="form-control" name = "nombre_parcial" id="nombre_parcial" required>
                       <label for="peso_curso" class="form-control-label">Peso del Parcial:</label>
-                      <input type="text" class="form-control" name = "peso_parcial" id="peso_parcial">
+                      <input type="text" class="form-control" name = "peso_parcial" id="peso_parcial" required>
                     </div>
                 </div>
                 <div class="modal-footer">

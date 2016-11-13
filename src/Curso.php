@@ -34,7 +34,7 @@
             <button type="button" id="eliminarlumno" data-toggle="modal" data-target="#modal_eliminar_alumno" class="btn btn-primary">Eliminar Alumno</button>
             <button type="button" id="nuevoParcial" data-toggle="modal" data-target="#modal_nuevo_parcial"class="btn btn-primary">Añadir Parcial</button>
             <button type="button" id="eliminarParcial" data-toggle="modal" data-target="#modal_eliminar_parcial" class="btn btn-primary">Eliminar Parcial</button>
-			<a href="../index.php"><button type="button" class="btn btn-link">Volver</button></a>
+			<a href="../inicioCursos.php"><button type="button" class="btn btn-link">Volver</button></a>
 		</div>
         <!--modal prompt nuevo parcial-->
         <?php require 'modal/modalNuevoParcial.php' ?>       

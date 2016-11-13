@@ -42,7 +42,7 @@
 		$UsuarioDb = UsuarioDb::getInstance();
 		
 		$UsuarioDb->eliminarUsuarioPorId($id);
-		header("Location:gestionUsuarios.php");
+		header("Location:../gestionUsuarios.php");
 		//header('Location:pruebas.php?id='.$id);
 
 	}
@@ -84,7 +84,6 @@
 	
 
     //TODO: preguntar si esto va con las comillas y los puntos o no--->$coincidencias = $UsuarioDb->buscarUsuarioPorNombreOPassword("'".$nombreUsuario."'", "'".$password."'");
-	//TODO: no permitir campos vacíos ni contraseñas mayodes que 10 caracteres.
 	//TODO: mostrar ventanas de confirmacion antes de eliminar usuarios.
 	
          

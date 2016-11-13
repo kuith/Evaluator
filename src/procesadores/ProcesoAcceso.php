@@ -6,16 +6,14 @@
 		$intentoPassword = $_POST["accesoPassword"];
 		
 		$UsuarioDb = UsuarioDb::getInstance();
-		$coincidencias = $UsuarioDb->buscarUsuarioPorNombreOPassword("'".$intentoUsuario."'","'".$intentoPassword."'");
+		$coincidencias = $UsuarioDb->buscarUsuarioPorNombreYPassword("'".$intentoUsuario."'","'".$intentoPassword."'");
 		$numConcidencias = (int)$coincidencias -> num_rows;
 		
 		if($numConcidencias === 0){
 			header("Location:../avisos/usuarioNoAutorizado.php");
 		} else {
-			header("Location:../../index.php");
+			header("Location:../../inicioCursos.php");
 		}
 				
 				
 	}
-
-

@@ -16,7 +16,7 @@
         <div class="row" id = "encabezadoControlUsuarios">
 			<div class="col-sm-4"></div>
 			<div class="col-sm-4">
-                    <h1> <span class="tag tag-primary">Control de usuarios</span></h1>
+                <h1><span class="tag tag-primary">Control de usuarios</span></h1>
 			</div>
 			<div class="col-sm-4"></div>
 		</div>
@@ -27,7 +27,7 @@
 				<form class="form-inline" method="POST" action="../src/procesadores/ProcesoUsuarios.php">
 					<div class="form-group">
 						<label for="nombre_buscar_usuario">Nombre:</label>
-						<input type="text" class="form-control" name="nombre_buscar_usuario">
+						<input type="text" class="form-control" name="nombre_buscar_usuario" required>
 					</div>
 					<button type="submit" class="btn btn-primary">Buscar</button>
 				</form>
@@ -39,7 +39,7 @@
 			<div class="col-sm-5 "><button type="button" class="btn btn-success btn-block">Gesti&oacute;n de roles</button></div>
 		</div>
 		<div class="row filaBotonesGestionUsuarios">
-			<div class="col-sm-2 "><a href="../index.php" class="btn btn-secondary btn-block " role="button" aria-pressed="true">Volver</a></div>
+			<div class="col-sm-2 "><a href="../inicioCursos.php" class="btn btn-secondary btn-block " role="button" aria-pressed="true">Volver</a></div>
 		</div>
 			
 		<!--Modal prompt nuevo usuario-->
@@ -54,5 +54,5 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
 	</body>
 </html>
-<!--//TODO: filtrar la introduccion de datos, no permitir vacíos, etc.-->
-<!--//TODO: centrar todo-->
+
+

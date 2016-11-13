@@ -12,7 +12,7 @@
 			<div class="card card-block">
 				<h4 class="card-title">Parcial Existente</h4>
 				<p class="card-text">El parcial que desea crear ya existe en la Bd.</p>
-				<a href="../../index.php" class="card-link">Volver</a>
+				<a href="../../inicioCursos.php" class="card-link">Volver</a>
 			</div>
 		</div>
 		

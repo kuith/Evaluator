@@ -12,7 +12,7 @@
 			<div class="card card-block">
 				<h4 class="card-title">Parcial no encontrado</h4>
 				<p class="card-text">El parcial que desea elimiar no existe en la BD.</p>
-				<a href="../../index.php" class="card-link">Volver</a>
+				<a href="../../inicioCursos.php" class="card-link">Volver</a>
 			</div>
 		</div>
 		
